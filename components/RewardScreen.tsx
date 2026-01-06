@@ -3,9 +3,10 @@ import React, { useState, useRef } from 'react';
 
 interface RewardScreenProps {
   userName: string;
+  memberId: string; // 新增：接收編號
 }
 
-const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName }) => {
+const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memberId }) => {
   const [userName, setUserName] = useState(initialName);
   const [profilePic, setProfilePic] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -22,7 +23,7 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName }) =>
   };
 
   const handleShare = () => {
-    alert("已準備好分享！請截圖此【Hidden KARD】限定收藏卡，發布至 IG 限動並標記 @KARD_OFFICIAL 吧！");
+    alert(`已準備好分享！專屬編號：${memberId}\n請截圖此【Hidden KARD】限定收藏卡，發布至 IG 限動並標記 @KARD_OFFICIAL 吧！`);
   };
 
   return (
@@ -60,20 +61,17 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName }) =>
         </div>
       </div>
 
-      {/* Digital Certificate Card (2:3 ratio with optimized spacing) */}
+      {/* Digital Certificate Card */}
       <div id="hidden-card" className="relative w-full max-w-[300px] aspect-[2/3] bg-[#0a0a0a] border-4 border-[#d4af37] rounded-3xl overflow-hidden shadow-[0_0_60px_rgba(212,175,55,0.4)] group">
         <div className="absolute inset-0 gold-shimmer opacity-20 pointer-events-none"></div>
         
         <div className="relative h-full flex flex-col p-5 z-10">
-          {/* Top Corners Row */}
           <div className="w-full flex justify-between text-[#d4af37] font-cinzel text-3xl font-black opacity-80 leading-none">
             <span>K</span>
             <span>A</span>
           </div>
 
-          {/* Middle Content Section - Expanded to fill space and center content */}
           <div className="flex-1 flex flex-col items-center justify-center">
-            {/* Avatar Frame */}
             <div className="relative w-32 h-32 mb-5">
               <div className="absolute inset-0 border-4 border-[#d4af37] rounded-full gold-shimmer animate-pulse"></div>
               <div className="absolute inset-1.5 bg-black rounded-full overflow-hidden flex items-center justify-center">
@@ -85,7 +83,6 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName }) =>
               </div>
             </div>
 
-            {/* User Info */}
             <div className="text-center">
               <h3 className="text-white text-2xl font-bold font-cinzel tracking-tighter">Hidden KARD</h3>
               <div className="mt-2 inline-block">
@@ -102,9 +99,10 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName }) =>
             </div>
           </div>
 
-          {/* Bottom Row - Pushed to the very bottom */}
           <div className="w-full mt-auto">
-             <p className="text-[9px] text-[#d4af37]/40 font-cinzel tracking-[0.3em] mb-3 text-center uppercase">Member ID: TW-2024-KARD</p>
+             <p className="text-[9px] text-[#d4af37]/60 font-cinzel tracking-[0.2em] mb-3 text-center uppercase font-bold">
+               Member ID: {memberId}
+             </p>
              <div className="w-full flex justify-between text-[#d4af37] font-cinzel text-3xl font-black opacity-80 leading-none">
                 <span>R</span>
                 <span>D</span>
@@ -112,11 +110,9 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName }) =>
           </div>
         </div>
         
-        {/* Subtle Overlay Texture */}
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30 pointer-events-none"></div>
       </div>
 
-      {/* Share Button */}
       <button 
         onClick={handleShare}
         className="mt-8 bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] text-white px-12 py-4 rounded-full font-bold flex items-center gap-3 hover:scale-105 active:scale-95 transition-all shadow-xl"
@@ -128,9 +124,9 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName }) =>
       <div className="mt-12 bg-[#1a1a1a] p-6 rounded-3xl border border-gray-800 text-center w-full max-w-sm">
         <h4 className="text-white font-bold mb-4 text-xs tracking-widest uppercase">現場領獎專用 QR</h4>
         <div className="bg-white p-3 rounded-xl inline-block shadow-inner">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=KARD_FAN_PASS" alt="QR" className="w-24 h-24" />
+          <img src={`https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=KARD_FAN_${memberId}`} alt="QR" className="w-24 h-24" />
         </div>
-        <p className="text-[10px] text-gray-500 mt-4 leading-relaxed italic">請於演唱會攤位出示此動態畫面<br/>領取實體限定透卡</p>
+        <p className="text-[10px] text-gray-500 mt-4 leading-relaxed italic">請於演唱會攤位出示此動態畫面<br/>領取實體限定透卡 (驗證碼: {memberId})</p>
       </div>
     </div>
   );
