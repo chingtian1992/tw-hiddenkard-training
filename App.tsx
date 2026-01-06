@@ -11,13 +11,23 @@ type Tab = 'dashboard' | 'fanchant' | 'guide' | 'message' | 'reward';
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<Tab>('dashboard');
+  
+  // 生成隨機 ID 函式
+  const generateMemberId = () => {
+    const randomHex = () => Math.floor(Math.random() * 65536).toString(16).toUpperCase().padStart(4, '0');
+    return `HIDDEN-2026-${randomHex()}-${randomHex()}`;
+  };
+
   const [gameState, setGameState] = useState<GameState>(() => {
     const saved = localStorage.getItem('kard_training_state');
-    return saved ? JSON.parse(saved) : {
-      songsCompleted: [],
-      memoryBeaten: true, // Memory game removed, auto-complete
-      messageSent: false,
-      userName: 'Hidden KARD'
+    const parsed = saved ? JSON.parse(saved) : null;
+    
+    return {
+      songsCompleted: parsed?.songsCompleted || [],
+      memoryBeaten: true,
+      messageSent: parsed?.messageSent || false,
+      userName: parsed?.userName || 'Hidden KARD',
+      memberId: parsed?.memberId || generateMemberId() // 如果沒存過，就生成一個新的
     };
   });
 
@@ -39,7 +49,6 @@ const App: React.FC = () => {
   const getUnlockedSuits = (): Suit[] => {
     const suits: Suit[] = [];
     const count = gameState.songsCompleted.length;
-    // 3 songs per member card
     if (count >= 3) suits.push('spades');
     if (count >= 6) suits.push('clubs');
     if (count >= 9) suits.push('hearts');
@@ -78,7 +87,6 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] pb-24 text-white">
-      {/* Header */}
       <header className="sticky top-0 z-40 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-[#d4af37]/20 p-4 flex justify-between items-center">
         <h1 className="font-cinzel text-[#d4af37] font-bold text-lg tracking-widest leading-none">HIDDEN TRAINING</h1>
         <div className="flex gap-1">
@@ -90,7 +98,6 @@ const App: React.FC = () => {
         </div>
       </header>
 
-      {/* Main Content Area */}
       <main className="max-w-4xl mx-auto">
         {activeTab === 'dashboard' && (
           <div className="p-6">
@@ -145,7 +152,7 @@ const App: React.FC = () => {
               <button onClick={() => setActiveTab('message')} className="bg-[#1a1a1a] border border-gray-800 p-6 rounded-3xl flex items-center justify-between group hover:border-white transition-all">
                 <div className="text-left">
                   <h3 className="text-xl font-bold">Hidden 留言牆</h3>
-                  <p className="text-sm text-gray-500">{gameState.messageSent ? '精神喊話已送達 ✓' : '與 The Joker 對話'}</p>
+                  <p className="text-sm text-gray-500">{gameState.messageSent ? '精神喊話已送達 ✓' : '留下你的應援'}</p>
                 </div>
                 <div className="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center group-hover:bg-white group-hover:text-black">
                   <span className="text-xl">✍️</span>
@@ -183,11 +190,10 @@ const App: React.FC = () => {
         )}
 
         {activeTab === 'reward' && (
-          <RewardScreen userName={gameState.userName} />
+          <RewardScreen userName={gameState.userName} memberId={gameState.memberId} />
         )}
       </main>
 
-      {/* Navigation Footer */}
       <nav className="fixed bottom-0 inset-x-0 h-20 bg-[#0a0a0a]/95 backdrop-blur-lg border-t border-gray-800 flex items-center justify-around z-40">
         <button onClick={() => setActiveTab('dashboard')} className={`flex flex-col items-center gap-1 ${activeTab === 'dashboard' ? 'text-[#d4af37]' : 'text-gray-600'}`}>
           <div className="text-xl">🏠</div>
