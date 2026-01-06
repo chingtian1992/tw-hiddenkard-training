@@ -1,0 +1,7 @@
+{
+  "name": "KARD: THE HIDDEN CARD - Fanchant Training Camp",
+  "description": "An interactive poker-themed web app for KARD fans to practice fanchants, play games, and earn exclusive digital rewards.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
