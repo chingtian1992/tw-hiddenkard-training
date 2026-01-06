@@ -99,11 +99,11 @@ export const SONGS: Song[] = [
     videoUrl: 'https://www.youtube.com/watch?v=Kz698C2OayE',
   },
   {
-    id: 11, title: 'Without You', artist: 'KARD', member: 'Somin', suit: 'hearts',
-    question: '這首歌抒情段落的應援氣氛是？', options: ['熱血', '溫馨', '悲傷', '無應援'],
+    id: 11, title: 'Touch', artist: 'KARD', member: 'Somin', suit: 'hearts',
+    question: '副歌需要一起唱的部分？', options: ['One', 'One touch One touch', 'oh, na-na-na-na', '無應援'],
     correctAnswer: 1, 
-    imageUrl: 'https://picsum.photos/seed/without/400/600',
-    videoUrl: 'https://www.youtube.com/watch?v=kYJ0MvLpC0Y',
+    imageUrl: 'https://i.scdn.co/image/ab67616d0000b27311743685504d9a75ffeabf36/400/600',
+    videoUrl: 'https://youtu.be/i3gaErmAQCk?si=mVYygDYPQem4k65p',
   },
   {
     id: 12, title: 'Tell My Momma', artist: 'KARD', member: 'Jiwoo', suit: 'diamonds',
