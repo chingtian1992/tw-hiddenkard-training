@@ -22,12 +22,12 @@ const MessageWall: React.FC<MessageWallProps> = ({ onSent }) => {
   
   // 初始模擬數據，營造「全球 Hidden KARD 應援中」的集訓氛圍
   const [history, setHistory] = useState<MessageEntry[]>([
-    { id: '1', name: 'Hidden_Seoul', text: 'KARD Forever! Waiting for the tour!', rotation: -5, offsetX: -10, offsetY: 0, colorTheme: 'white' },
+    { id: '1', name: 'Hidden_Taiwan', text: 'KARD Forever! Waiting for the tour!', rotation: -5, offsetX: -10, offsetY: 0, colorTheme: 'white' },
     { id: '2', name: 'Ace_J', text: 'J.Seph 的 Rap 真的太帥了！', rotation: 8, offsetX: 15, offsetY: 5, colorTheme: 'white' },
-    { id: '3', name: 'KARD_Official', text: 'Welcome to the Training Camp, Hidden KARD!', rotation: -2, offsetX: 0, offsetY: 10, colorTheme: 'dark' },
+    { id: '3', name: 'Training_hidden', text: 'Welcome to the Training Camp, Hidden KARD!', rotation: -2, offsetX: 0, offsetY: 10, colorTheme: 'dark' },
     { id: '4', name: 'BM_Stans', text: 'Big Matthew check in! 🔥 Keep the fire burning!', rotation: -12, offsetX: -20, offsetY: -10, colorTheme: 'white' },
     { id: '5', name: 'Somin_Love', text: '全能女神 Somin 加油！！', rotation: 6, offsetX: 5, offsetY: -5, colorTheme: 'white' },
-    { id: '6', name: 'Jiwoo_Queen', text: 'Jiwoo 的煙燻嗓音真的沒人能代替 ❤️', rotation: -4, offsetX: 12, offsetY: 8, colorTheme: 'white' },
+    { id: '6', name: 'Jiwoo_Queen', text: 'Jiwoo 的音色真的沒人能代替 ❤️', rotation: -4, offsetX: 12, offsetY: 8, colorTheme: 'white' },
   ]);
 
   const createCard = (name: string, text: string): MessageEntry => ({
