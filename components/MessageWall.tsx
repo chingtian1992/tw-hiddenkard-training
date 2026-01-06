@@ -1,6 +1,15 @@
 
 import React, { useState } from 'react';
-import { GoogleGenAI } from "@google/genai";
+
+interface MessageEntry {
+  id: string;
+  name: string;
+  text: string;
+  rotation: number;
+  offsetX: number;
+  offsetY: number;
+  colorTheme: 'white' | 'dark';
+}
 
 interface MessageWallProps {
   onSent: () => void;
@@ -10,27 +19,28 @@ const MessageWall: React.FC<MessageWallProps> = ({ onSent }) => {
   const [message, setMessage] = useState('');
   const [userName, setUserName] = useState('');
   const [isFlying, setIsFlying] = useState(false);
-  const [history, setHistory] = useState<{name: string, text: string}[]>([]);
+  
+  // 初始模擬數據，營造「全球 Hidden KARD 應援中」的集訓氛圍
+  const [history, setHistory] = useState<MessageEntry[]>([
+    { id: '1', name: 'Hidden_Seoul', text: 'KARD Forever! Waiting for the tour!', rotation: -5, offsetX: -10, offsetY: 0, colorTheme: 'white' },
+    { id: '2', name: 'Ace_J', text: 'J.Seph 的 Rap 真的太帥了！', rotation: 8, offsetX: 15, offsetY: 5, colorTheme: 'white' },
+    { id: '3', name: 'KARD_Official', text: 'Welcome to the Training Camp, Hidden KARD!', rotation: -2, offsetX: 0, offsetY: 10, colorTheme: 'dark' },
+    { id: '4', name: 'BM_Stans', text: 'Big Matthew check in! 🔥 Keep the fire burning!', rotation: -12, offsetX: -20, offsetY: -10, colorTheme: 'white' },
+    { id: '5', name: 'Somin_Love', text: '全能女神 Somin 加油！！', rotation: 6, offsetX: 5, offsetY: -5, colorTheme: 'white' },
+    { id: '6', name: 'Jiwoo_Queen', text: 'Jiwoo 的煙燻嗓音真的沒人能代替 ❤️', rotation: -4, offsetX: 12, offsetY: 8, colorTheme: 'white' },
+  ]);
 
-  // Fix: Integrated Gemini API to provide character-accurate responses from the "Hidden Card" Joker
-  const getJokerReply = async (fanMsg: string, fanName: string) => {
-    try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
-        contents: `You are "The Joker" (the mysterious 5th member/Hidden Card) of the K-pop group KARD. 
-        A fan named ${fanName} just left this message on the Hidden Wall: "${fanMsg}". 
-        Write a short (under 40 words), cool, charismatic, and encouraging response. 
-        Refer to the fan as a 'Hidden KARD' and keep the vibe mysterious and legendary.`,
-      });
-      return response.text;
-    } catch (error) {
-      console.error("AI interaction failed:", error);
-      return "The Joker has seen your message. Keep the fire burning, Hidden KARD.";
-    }
-  };
+  const createCard = (name: string, text: string): MessageEntry => ({
+    id: Math.random().toString(36).substr(2, 9),
+    name,
+    text,
+    rotation: Math.floor(Math.random() * 24) - 12, // 隨機旋轉 -12 ~ 12 度
+    offsetX: Math.floor(Math.random() * 50) - 25, // 隨機水平位移
+    offsetY: Math.floor(Math.random() * 30) - 15, // 隨機垂直位移
+    colorTheme: Math.random() > 0.9 ? 'dark' : 'white', // 極低機率抽中黑卡
+  });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!message.trim() || !userName.trim()) return;
 
@@ -39,89 +49,146 @@ const MessageWall: React.FC<MessageWallProps> = ({ onSent }) => {
 
     setIsFlying(true);
     
-    // Animate and update wall
-    setTimeout(async () => {
-      setHistory(prev => [{ name: currentName, text: currentMsg }, ...prev.slice(0, 9)]);
+    // 模擬發牌動畫落地的時間感
+    setTimeout(() => {
+      const newCard = createCard(currentName, currentMsg);
+      // 將新卡片放在陣列最前面，使其在畫面上疊在上方
+      setHistory(prev => [newCard, ...prev]);
       setMessage('');
       setIsFlying(false);
       onSent();
-
-      // Trigger AI interaction
-      const reply = await getJokerReply(currentMsg, currentName);
-      if (reply) {
-        setHistory(prev => [{ name: 'The Joker 🃏', text: reply }, ...prev.slice(0, 9)]);
-      }
-    }, 1000);
+    }, 800);
   };
 
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-cinzel text-[#d4af37] text-center mb-6">Hidden's 精神喊話</h2>
+    <div className="p-4 min-h-screen bg-[#0a0a0a]">
+      <div className="text-center mb-10">
+        <h2 className="text-2xl font-cinzel text-[#d4af37] mb-2 tracking-tight">Hidden's 精神喊話</h2>
+        <div className="inline-block px-3 py-1 bg-[#ff0033]/10 border border-[#ff0033]/30 rounded-full">
+          <p className="text-[#ff0033] text-[9px] font-black uppercase tracking-[0.2em]">Message Wall</p>
+        </div>
+      </div>
       
-      <div className="relative mb-12">
-        <form onSubmit={handleSubmit} className="bg-white rounded-xl p-4 shadow-2xl border-4 border-gray-200 w-full max-w-sm mx-auto relative z-10">
+      {/* 留言輸入區 - 空白撲克牌設計 */}
+      <div className="relative mb-20 z-30">
+        <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-5 shadow-[0_30px_60px_rgba(0,0,0,0.6)] border-4 border-gray-100 w-full max-w-xs mx-auto transform transition-all duration-300 hover:scale-[1.02]">
           <div className="flex justify-between items-start mb-4">
-            <span className="text-[#ff0033] font-cinzel text-xl font-bold">J</span>
-            <span className="text-[#ff0033] font-cinzel text-xl font-bold rotate-180">J</span>
+            <div className="flex flex-col items-center">
+              <span className="text-[#ff0033] font-cinzel text-xl font-black leading-none">H</span>
+              <span className="text-[#ff0033] text-sm">♥</span>
+            </div>
+            <span className="text-gray-300 font-cinzel text-[10px] tracking-widest mt-1">HIDDEN CARD</span>
+            <div className="flex flex-col items-center rotate-180">
+              <span className="text-[#ff0033] font-cinzel text-xl font-black leading-none">H</span>
+              <span className="text-[#ff0033] text-sm">♥</span>
+            </div>
           </div>
           
-          <input
-            type="text"
-            placeholder="你的暱稱"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
-            className="w-full bg-gray-50 border-b border-gray-300 text-gray-800 p-2 mb-4 outline-none focus:border-[#ff0033]"
-          />
-          <textarea
-            rows={4}
-            placeholder="寫下給 KARD 的應援話語..."
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            className="w-full bg-gray-50 border border-gray-300 rounded p-2 text-gray-800 resize-none outline-none focus:border-[#ff0033]"
-          />
-          
-          <button 
-            type="submit"
-            disabled={isFlying}
-            className="w-full mt-4 bg-[#ff0033] text-white py-3 rounded-lg font-bold hover:bg-red-700 transition-colors"
-          >
-            {isFlying ? '傳遞中...' : '扔入牌堆'}
-          </button>
+          <div className="space-y-4">
+            <input
+              type="text"
+              placeholder="YOUR NAME / CODE"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+              className="w-full bg-transparent border-b-2 border-gray-100 text-gray-800 p-2 text-sm font-bold outline-none focus:border-[#ff0033] transition-colors"
+            />
+            <textarea
+              rows={3}
+              placeholder="寫下給 KARD 的應援..."
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              className="w-full bg-gray-50 border border-gray-100 rounded-xl p-3 text-gray-800 text-sm resize-none outline-none focus:border-[#ff0033] transition-all"
+            />
+            
+            <button 
+              type="submit"
+              disabled={isFlying}
+              className="w-full bg-[#ff0033] text-white py-3 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-red-700 transition-all active:scale-95 shadow-xl shadow-red-900/20"
+            >
+              {isFlying ? 'SHUFFLING...' : 'DEAL YOUR MESSAGE'}
+            </button>
+          </div>
         </form>
 
+        {/* 發牌動畫 */}
         {isFlying && (
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-48 bg-white rounded-xl shadow-2xl border-2 border-gray-100 flex items-center justify-center animate-[fly_1s_ease-in-out_forwards] z-20">
-             <span className="text-2xl">🃏</span>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-40 bg-white rounded-xl shadow-2xl border-4 border-gray-50 flex items-center justify-center animate-cardDeal z-50">
+             <div className="flex flex-col items-center">
+               <span className="text-[#ff0033] text-3xl font-black font-cinzel">H</span>
+               <span className="text-[#ff0033] text-lg">♥</span>
+             </div>
           </div>
         )}
       </div>
 
+      {/* 牌堆視覺區 (Card Sea) */}
+      <div className="relative w-full h-[600px] mt-10 overflow-hidden rounded-t-[3rem] bg-gradient-to-b from-[#111] to-[#0a0a0a] border-t border-white/5">
+        <div className="absolute inset-0 flex flex-wrap justify-center items-start gap-1 p-8 overflow-y-auto pb-48 pt-12 custom-scrollbar">
+          {history.map((h, i) => (
+            <div 
+              key={h.id} 
+              className={`relative w-36 sm:w-44 p-4 rounded-xl shadow-2xl border-2 transition-all duration-700 animate-cardLand
+                ${h.colorTheme === 'dark' 
+                  ? 'bg-[#1a1a1a] border-[#d4af37] text-white z-20' 
+                  : 'bg-white border-gray-200 text-gray-800 z-10'
+                }`}
+              style={{ 
+                transform: `rotate(${h.rotation}deg) translate(${h.offsetX}px, ${h.offsetY}px)`,
+                marginTop: i > 0 ? '-60px' : '0' 
+              }}
+            >
+              <div className="flex justify-between items-start mb-2">
+                <div className="flex flex-col items-center">
+                  <span className={`text-[10px] font-black leading-none ${h.colorTheme === 'dark' ? 'text-[#d4af37]' : 'text-red-500'}`}>H</span>
+                  <span className={`text-[8px] ${h.colorTheme === 'dark' ? 'text-[#d4af37]' : 'text-red-500'}`}>♥</span>
+                </div>
+                <span className={`text-[9px] font-bold truncate max-w-[70px] ${h.colorTheme === 'dark' ? 'text-gray-400' : 'text-gray-400'}`}>
+                  @{h.name}
+                </span>
+              </div>
+              
+              <p className="text-[11px] leading-relaxed font-medium mb-2 min-h-[40px] line-clamp-4 italic">
+                "{h.text}"
+              </p>
+              
+              <div className="flex justify-between items-end rotate-180">
+                <div className="flex flex-col items-center">
+                  <span className={`text-[10px] font-black leading-none ${h.colorTheme === 'dark' ? 'text-[#d4af37]' : 'text-red-500'}`}>H</span>
+                  <span className={`text-[8px] ${h.colorTheme === 'dark' ? 'text-[#d4af37]' : 'text-red-500'}`}>♥</span>
+                </div>
+                <span className="text-[7px] text-gray-300 font-cinzel">KARD</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        {/* 裝飾性遮罩 */}
+        <div className="absolute top-0 inset-x-0 h-16 bg-gradient-to-b from-[#111] to-transparent pointer-events-none z-30"></div>
+        <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent pointer-events-none z-30 flex items-end justify-center pb-10">
+          <p className="text-[10px] text-gray-600 font-bold uppercase tracking-[0.4em] animate-pulse">Hidden CARD Pile</p>
+        </div>
+      </div>
+
       <style>{`
-        @keyframes fly {
-          0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1; }
-          100% { transform: translate(200%, -500%) scale(0.2) rotate(720deg); opacity: 0; }
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 0px;
         }
-        .animate-fadeIn {
-          animation: fadeIn 0.4s ease-out forwards;
+        @keyframes cardDeal {
+          0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1; filter: blur(0); }
+          40% { transform: translate(-50%, -120%) scale(1.1) rotate(15deg); opacity: 1; filter: blur(1px); }
+          100% { transform: translate(180%, -450%) scale(0.4) rotate(1080deg); opacity: 0; filter: blur(4px); }
         }
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
+        @keyframes cardLand {
+          from { opacity: 0; transform: scale(1.6) translateY(-100px) rotate(45deg); filter: blur(10px); }
+          to { opacity: 1; filter: blur(0); }
+        }
+        .animate-cardDeal {
+          animation: cardDeal 0.8s cubic-bezier(0.45, 0.05, 0.55, 0.95) forwards;
+        }
+        .animate-cardLand {
+          animation: cardLand 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
         }
       `}</style>
-
-      <div className="space-y-4">
-        <h3 className="text-gray-400 text-sm font-bold uppercase tracking-widest border-b border-gray-800 pb-2">牌堆動態</h3>
-        {history.length === 0 && <p className="text-gray-600 text-center italic">還沒有人發牌，成為第一個吧！</p>}
-        {history.map((h, i) => (
-          <div key={i} className={`p-3 rounded-lg border-l-4 animate-fadeIn ${
-            h.name.includes('Joker') ? 'bg-[#1a1a1a] border-[#ff0033] shadow-[0_0_15px_rgba(255,0,51,0.2)]' : 'bg-[#111111] border-[#d4af37]'
-          }`}>
-            <p className={`text-xs font-bold mb-1 ${h.name.includes('Joker') ? 'text-[#ff0033]' : 'text-[#d4af37]'}`}>{h.name}</p>
-            <p className="text-gray-300 text-sm">{h.text}</p>
-          </div>
-        ))}
-      </div>
     </div>
   );
 };
