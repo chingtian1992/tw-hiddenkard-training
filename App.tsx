@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { GameState, Suit } from './types';
 import { MEMBER_INFO, SONGS, COLORS } from './constants';
