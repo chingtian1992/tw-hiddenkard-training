@@ -72,10 +72,10 @@ export const SONGS: Song[] = [
   },
   {
     id: 7, title: 'GUNSHOT', artist: 'KARD', member: 'Somin', suit: 'hearts',
-    question: '槍聲特效出現時要喊？', options: ['Bang!', 'Kill!', 'Fire!', 'Boom!'],
-    correctAnswer: 0, 
+    question: '歌曲前奏時要喊？', options: ['尖叫', '김매튜!김태형!전소민!전지우!', '내마음을!저격한!K.A.R.D（把我的心狙擊的ＫＡＲＤ)', '以上皆是'],
+    correctAnswer: 3, 
     imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731fa689610fdceeb2060840ef',
-    videoUrl: 'https://www.youtube.com/watch?v=m4GfL0g3x6w',
+    videoUrl: 'https://youtu.be/eD0peafO7Pw?si=7tDOeDmyn5HcvQdJ',
   },
   {
     id: 8, title: 'Ring The Alarm', artist: 'KARD', member: 'Jiwoo', suit: 'diamonds',
