@@ -65,14 +65,14 @@ export const SONGS: Song[] = [
   },
   {
     id: 6, title: 'RED MOON', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
-    question: '這首歌的應援節奏是？', options: ['快節奏', '慢節奏', '切分音節奏', '無應援'],
+    question: 'Oh run baby run Oh run baby run 這句歌詞後，要跟著？', options: ['原地跑步', '左右晃動', '大聲唱 On and on and on and on', '安靜看表演'],
     correctAnswer: 2, 
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTNYI1tHuWR9hurWHD9_rPS5ue0ceW5P0L1Q&s',
     videoUrl: 'https://youtu.be/aAmKkZo9A7M?si=XnuH49txDyXMe-gG',
   },
   {
     id: 7, title: 'GUNSHOT', artist: 'KARD', member: 'Somin', suit: 'hearts',
-    question: '歌曲前奏時要喊？', options: ['尖叫', '김매튜!김태형!전소민!전지우!', '내마음을!저격한!K.A.R.D（把我的心狙擊的ＫＡＲＤ)', '以上皆是'],
+    question: '歌曲前奏時要喊？', options: ['尖叫', '김매튜!김태형!전소민!전지우!', '내마음을!저격한!K.A.R.D（把我的心狙擊的KARD)', '以上皆是'],
     correctAnswer: 3, 
     imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731fa689610fdceeb2060840ef',
     videoUrl: 'https://youtu.be/eD0peafO7Pw?si=7tDOeDmyn5HcvQdJ',
