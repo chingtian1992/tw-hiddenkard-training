@@ -89,7 +89,7 @@ export const SONGS: Song[] = [
     question: '副歌黏膩感十足的應援詞是？', options: ['ICKY ICKY!', 'Sticky!', 'Ooh!', 'Yeah!'],
     correctAnswer: 0, 
     imageUrl: 'https://picsum.photos/seed/icky/400/600',
-    videoUrl: 'https://www.youtube.com/watch?v=E_yV5k9K5z0',
+    videoUrl: 'https://youtu.be/L-i-_XSIgWQ?si=PRydR9988eER7pxB',
   },
   {
     id: 10, title: 'Cake', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
@@ -109,7 +109,7 @@ export const SONGS: Song[] = [
     id: 12, title: 'Tell My Momma', artist: 'KARD', member: 'Jiwoo', suit: 'diamonds',
     question: '副歌動感節奏時的動作是？', options: ['揮手', '指尖舞蹈', '原地旋轉', '全體大跳'],
     correctAnswer: 0, 
-    imageUrl: 'https://picsum.photos/seed/momma/400/600',
-    videoUrl: 'https://www.youtube.com/watch?v=mYdO1X_X5z0',
+    imageUrl: 'https://i.scdn.co/image/ab67616d0000b273735a45653bf69f7f50843a44/400/600',
+    videoUrl: 'https://youtu.be/7UciiiKGGYA?si=83m-L172_YV1GzbP',
   },
 ];
