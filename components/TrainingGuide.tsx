@@ -26,6 +26,7 @@ const TrainingGuide: React.FC = () => {
             
             <div className="flex-1 p-4 overflow-hidden">
               <h3 className="text-white font-bold truncate">{song.title}</h3>
+               <p className="text-[10px] text-[#d4af37] uppercase tracking-widest"> </p>
             </div>
             
             <div className="flex flex-col gap-2 p-4 shrink-0">
