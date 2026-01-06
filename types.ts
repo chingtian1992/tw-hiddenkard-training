@@ -21,6 +21,7 @@ export interface GameState {
   memoryBeaten: boolean;
   messageSent: boolean;
   userName: string;
+  memberId: string; // 新增：專屬編號
 }
 
 export interface Message {
