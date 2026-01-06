@@ -102,14 +102,14 @@ export const SONGS: Song[] = [
     id: 11, title: 'Touch', artist: 'KARD', member: 'Somin', suit: 'hearts',
     question: '副歌需要一起唱的部分？', options: ['One', 'One touch One touch', 'oh, na-na-na-na', '無應援'],
     correctAnswer: 1, 
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b27311743685504d9a75ffeabf36/400/600',
+    imageUrl: 'https://i.scdn.co/image/ab67616d0000b27311743685504d9a75ffeabf36',
     videoUrl: 'https://youtu.be/i3gaErmAQCk?si=mVYygDYPQem4k65p',
   },
   {
     id: 12, title: 'Tell My Momma', artist: 'KARD', member: 'Jiwoo', suit: 'diamonds',
     question: '副歌動感節奏時的動作是？', options: ['揮手', '指尖舞蹈', '原地旋轉', '全體大跳'],
     correctAnswer: 0, 
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b273735a45653bf69f7f50843a44/400/600',
+    imageUrl: 'https://i.scdn.co/image/ab67616d0000b273735a45653bf69f7f50843a44',
     videoUrl: 'https://youtu.be/7UciiiKGGYA?si=83m-L172_YV1GzbP',
   },
 ];
