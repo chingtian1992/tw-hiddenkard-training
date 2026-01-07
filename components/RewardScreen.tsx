@@ -196,23 +196,7 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
             </div>
           </div>
           
-          {/* 菱格紋背景層 */}
-<div 
-  className="absolute inset-0 opacity-20 pointer-events-none" 
-  style={{
-    backgroundColor: '#0a0a0a',
-    backgroundImage: `
-      linear-gradient(30deg, #d4af37 12%, transparent 12.5%, transparent 87%, #d4af37 87.5%, #d4af37),
-      linear-gradient(150deg, #d4af37 12%, transparent 12.5%, transparent 87%, #d4af37 87.5%, #d4af37),
-      linear-gradient(30deg, #d4af37 12%, transparent 12.5%, transparent 87%, #d4af37 87.5%, #d4af37),
-      linear-gradient(150deg, #d4af37 12%, transparent 12.5%, transparent 87%, #d4af37 87.5%, #d4af37),
-      linear-gradient(60deg, #d4af37 25%, transparent 25.5%, transparent 75%, #d4af37 75%, #d4af37),
-      linear-gradient(60deg, #d4af37 25%, transparent 25.5%, transparent 75%, #d4af37 75%, #d4af37)
-    `,
-    backgroundSize: '40px 70px',
-    backgroundPosition: '0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px'
-  }}
-></div>
+        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/shattered-island.png')] opacity-20 pointer-events-none"></div>
         </div>
       </div>
 
