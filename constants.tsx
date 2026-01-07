@@ -103,7 +103,7 @@ export const SONGS: Song[] = [
   {
     id: 10, title: 'Cake', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
     question: '', options: [], correctAnswer: 0, isChallenge: false,
-    imageUrl: 'https://picsum.photos/seed/cake/400/600',
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgAd_AVO1uGwvmygaWRjrE-ZBz-hpiezMmcA&s',
     videoUrl: 'https://youtu.be/uho3n38lq7o?si=znaQITfupCti8hau',
   },
   {
