@@ -139,7 +139,7 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
             onClick={() => fileInputRef.current?.click()}
             className="bg-gray-800 text-white py-3 rounded-xl text-xs font-bold hover:bg-gray-700 transition-colors border border-gray-700"
           >
-            {profilePic ? '更換頭像 📸' : '選擇頭像 📸'}
+            {profilePic ? '更換照片 📸' : '選擇照片 📸'}
           </button>
           <input type="file" ref={fileInputRef} className="hidden" accept="image/*" onChange={handleImageUpload} />
         </div>
