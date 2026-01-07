@@ -108,7 +108,7 @@ export const SONGS: Song[] = [
   },
   {
     id: 11, title: 'Tell My Momma', artist: 'KARD', member: 'Jiwoo', suit: 'diamonds',
-    question: 'Cause I'm ready to dive in？', options: ['K!A!R!D!', 'My Momma', 'True', 'Hidden KARD'],
+    question: 'Cause I\'m ready to dive in\?', options: ['K!A!R!D!', 'My Momma', 'True', 'Hidden KARD'],
     correctAnswer: 0, isChallenge: true,
     imageUrl: 'https://i.scdn.co/image/ab67616d0000b273735a45653bf69f7f50843a44',
     videoUrl: 'https://youtu.be/7UciiiKGGYA?si=83m-L172_YV1GzbP',
