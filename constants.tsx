@@ -27,10 +27,15 @@ export const SONGS: Song[] = [
   },
   {
     id: 2, title: 'Don\'t Recall', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
-    question: '這首歌最具代表性的哨音部分要跟著做什麼？', options: ['原地跳躍', '左右搖擺', '喊 K.A.R.D', '拿出應援燈揮舞'],
-    correctAnswer: 2, isChallenge: true,
+    question: '', options: [], correctAnswer: 0, isChallenge: false,
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvFfb3D1T16n8_r2aPee6Xtr6boYu_ZBSuTw&s',
     videoUrl: 'https://youtu.be/41Dp7Q-SM1Y?si=9roXE_yXSRiCTGos',
+  },
+    {
+    id: 102, title: 'RUMOR', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
+    question: '', options: [], correctAnswer: 0, isChallenge: false,
+    imageUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Music127/v4/34/af/cc/34afcca4-914a-9880-4fec-74aa7d36a26d/cover-K.A.R.D_DS.jpg/1200x630bb.jpg',
+    videoUrl: 'https://youtu.be/8LPjJ1p4dYs?si=gzmDoiDKgqsmNwCn',
   },
   {
     id: 3, title: 'Hola Hola', artist: 'KARD', member: 'Somin', suit: 'hearts',
@@ -38,6 +43,20 @@ export const SONGS: Song[] = [
     correctAnswer: 1, isChallenge: true,
     imageUrl: 'https://upload.wikimedia.org/wikipedia/zh/7/7d/KARD_-_Hola_Hola_%28EP%29.png',
     videoUrl: 'https://youtu.be/USx4WyrkfU4?si=3gatR7i-ok1U1Ozp',
+  },
+    {
+    id: 13, title: 'You In Me', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
+    question: '這首歌最具代表性的部分要跟著做什麼？', options: ['待定', '待定', '喊 K.A.R.D', '待定'],
+    correctAnswer: 2, isChallenge: true,
+    imageUrl: 'https://i.kfs.io/album/global/30370735,0v1/fit/500x500.jpg',
+    videoUrl: 'https://youtu.be/tz23WFb8HM0?si=LjYlAL4D5aaFvSPL',
+  },
+     {
+    id: 101, title: 'Ride on the wind', artist: 'KARD', member: 'BM', suit: 'spades',
+    question: '這首歌最具代表性的部分要跟著做什麼？', options: ['待定', '待定', '喊 K.A.R.D', '待定'],
+    correctAnswer: 2, isChallenge: true,
+    imageUrl: 'https://m.media-amazon.com/images/I/51jPe9NEdbL._AC_UF894,1000_QL80_.jpg',
+    videoUrl: 'https://youtu.be/6AZ3BAydZqI?si=1cYLav8ESm90mpKW',
   },
   {
     id: 4, title: 'Bomb Bomb', artist: 'KARD', member: 'Jiwoo', suit: 'diamonds',
@@ -83,36 +102,29 @@ export const SONGS: Song[] = [
   },
   {
     id: 10, title: 'Cake', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
-    question: '這首歌要大家一起慶祝什麼？', options: ['KARD 生日', 'Hidden KARD 出道', '演唱會成功', '單純好心情'],
-    correctAnswer: 1, isChallenge: true,
+    question: '', options: [], correctAnswer: 0, isChallenge: false,
     imageUrl: 'https://picsum.photos/seed/cake/400/600',
     videoUrl: 'https://youtu.be/uho3n38lq7o?si=znaQITfupCti8hau',
   },
   {
-    id: 11, title: 'Touch', artist: 'KARD', member: 'Somin', suit: 'hearts',
-    question: '副歌需要一起唱的部分？', options: ['One', 'One touch One touch', 'oh, na-na-na-na', '無應援'],
-    correctAnswer: 1, isChallenge: true,
-    imageUrl: 'https://i.scdn.co/image/ab67616d0000b27311743685504d9a75ffeabf36',
-    videoUrl: 'https://youtu.be/i3gaErmAQCk?si=mVYygDYPQem4k65p',
-  },
-  {
-    id: 12, title: 'Tell My Momma', artist: 'KARD', member: 'Jiwoo', suit: 'diamonds',
+    id: 11, title: 'Tell My Momma', artist: 'KARD', member: 'Jiwoo', suit: 'diamonds',
     question: '副歌動感節奏時的動作是？', options: ['揮手', '指尖舞蹈', '原地旋轉', '全體大跳'],
     correctAnswer: 0, isChallenge: true,
     imageUrl: 'https://i.scdn.co/image/ab67616d0000b273735a45653bf69f7f50843a44',
     videoUrl: 'https://youtu.be/7UciiiKGGYA?si=83m-L172_YV1GzbP',
   },
+  {
+    id: 12, title: 'Touch', artist: 'KARD', member: 'Somin', suit: 'hearts',
+    question: '副歌需要一起唱的部分？', options: ['One', 'One touch One touch', 'oh, na-na-na-na', '無應援'],
+    correctAnswer: 1, isChallenge: true,
+    imageUrl: 'https://i.scdn.co/image/ab67616d0000b27311743685504d9a75ffeabf36',
+    videoUrl: 'https://youtu.be/i3gaErmAQCk?si=mVYygDYPQem4k65p',
+  },
   // 以下為非挑戰歌曲擴展範例
   {
-    id: 101, title: 'Ride on the wind', artist: 'KARD', member: 'BM', suit: 'spades',
+    id: 103, title: 'Before We Go', artist: 'KARD', member: 'Somin', suit: 'hearts',
     question: '', options: [], correctAnswer: 0, isChallenge: false,
-    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE1W0w0x2077n_r8_l03Vv637k4r1H5xH4Sg&s',
-    videoUrl: 'https://youtu.be/sqpA6fR5oCQ?si=4r8vD4K1W5vF1D2F',
-  },
-  {
-    id: 102, title: 'Way with Words', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
-    question: '', options: [], correctAnswer: 0, isChallenge: false,
-    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_x_Pj_Y_R_Pj_Y_R_Pj_Y_R_Pj_Y_R_Pj_Y&s',
-    videoUrl: 'https://youtu.be/Gqf3-N9M1oM?si=Gqf3-N9M1oM',
-  }
+    imageUrl: 'https://i.scdn.co/image/ab67616d0000b27311743685504d9a75ffeabf36',
+    videoUrl: 'https://youtu.be/8G-fNVBPrH0?si=OkccziCOXoaSEfWV',
+    }
 ];
