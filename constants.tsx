@@ -58,6 +58,7 @@ export const SONGS: Song[] = [
     correctAnswer: 0, isChallenge: true,
     imageUrl: 'https://m.media-amazon.com/images/I/51jPe9NEdbL._AC_UF894,1000_QL80_.jpg',
     videoUrl: 'https://youtu.be/6AZ3BAydZqI?si=1cYLav8ESm90mpKW',
+    musicUrl: 'https://chingtian1992.github.io/exam-audio/ride-on-the-wind_cut.mp3',
   },
   {
     id: 4, title: 'Bomb Bomb', artist: 'KARD', member: 'Jiwoo', suit: 'diamonds',
