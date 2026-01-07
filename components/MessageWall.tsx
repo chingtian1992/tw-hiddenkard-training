@@ -1,5 +1,4 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 interface MessageEntry {
   id: string;
@@ -9,6 +8,7 @@ interface MessageEntry {
   offsetX: number;
   offsetY: number;
   colorTheme: 'white' | 'dark';
+  isLocal?: boolean; // 標記是否為該使用者本次發送的留言
 }
 
 interface MessageWallProps {
@@ -20,24 +20,36 @@ const MessageWall: React.FC<MessageWallProps> = ({ onSent }) => {
   const [userName, setUserName] = useState('');
   const [isFlying, setIsFlying] = useState(false);
   
-  // 初始模擬數據，營造「全球 Hidden KARD 應援中」的集訓氛圍
-  const [history, setHistory] = useState<MessageEntry[]>([
+  // 模擬數據
+  const initialSimulation: MessageEntry[] = [
     { id: '1', name: 'Hidden_Taiwan', text: 'KARD Forever! Waiting for the tour!', rotation: -5, offsetX: -10, offsetY: 0, colorTheme: 'white' },
     { id: '2', name: 'Ace_J', text: 'J.Seph 的 Rap 真的太帥了！', rotation: 8, offsetX: 15, offsetY: 5, colorTheme: 'white' },
     { id: '3', name: 'Training_hidden', text: 'Welcome to the Training Camp, Hidden KARD!', rotation: -2, offsetX: 0, offsetY: 10, colorTheme: 'dark' },
     { id: '4', name: 'BM_Stans', text: 'Big Matthew check in! 🔥 Keep the fire burning!', rotation: -12, offsetX: -20, offsetY: -10, colorTheme: 'white' },
     { id: '5', name: 'Somin_Love', text: '全能女神 Somin 加油！！', rotation: 6, offsetX: 5, offsetY: -5, colorTheme: 'white' },
     { id: '6', name: 'Jiwoo_Queen', text: 'Jiwoo 的音色真的沒人能代替 ❤️', rotation: -4, offsetX: 12, offsetY: 8, colorTheme: 'white' },
-  ]);
+  ];
+
+  const [history, setHistory] = useState<MessageEntry[]>(initialSimulation);
+
+  // 初始化讀取 LocalStorage 中的個人留言
+  useEffect(() => {
+    const saved = localStorage.getItem('kard_user_messages');
+    if (saved) {
+      const userMsgs = JSON.parse(saved);
+      setHistory(prev => [...userMsgs, ...prev]);
+    }
+  }, []);
 
   const createCard = (name: string, text: string): MessageEntry => ({
     id: Math.random().toString(36).substr(2, 9),
     name,
     text,
-    rotation: Math.floor(Math.random() * 24) - 12, // 隨機旋轉 -12 ~ 12 度
-    offsetX: Math.floor(Math.random() * 50) - 25, // 隨機水平位移
-    offsetY: Math.floor(Math.random() * 30) - 15, // 隨機垂直位移
-    colorTheme: Math.random() > 0.9 ? 'dark' : 'white', // 極低機率抽中黑卡
+    rotation: Math.floor(Math.random() * 24) - 12,
+    offsetX: Math.floor(Math.random() * 50) - 25,
+    offsetY: Math.floor(Math.random() * 30) - 15,
+    colorTheme: Math.random() > 0.9 ? 'dark' : 'white',
+    isLocal: true
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -49,11 +61,16 @@ const MessageWall: React.FC<MessageWallProps> = ({ onSent }) => {
 
     setIsFlying(true);
     
-    // 模擬發牌動畫落地的時間感
     setTimeout(() => {
       const newCard = createCard(currentName, currentMsg);
-      // 將新卡片放在陣列最前面，使其在畫面上疊在上方
-      setHistory(prev => [newCard, ...prev]);
+      
+      // 更新狀態並存入 LocalStorage
+      const updatedHistory = [newCard, ...history];
+      setHistory(updatedHistory);
+      
+      const localOnly = updatedHistory.filter(h => h.isLocal);
+      localStorage.setItem('kard_user_messages', JSON.stringify(localOnly));
+
       setMessage('');
       setIsFlying(false);
       onSent();
@@ -69,8 +86,8 @@ const MessageWall: React.FC<MessageWallProps> = ({ onSent }) => {
         </div>
       </div>
       
-      {/* 留言輸入區 - 空白撲克牌設計 */}
-      <div className="relative mb-20 z-30">
+      {/* 留言輸入區 */}
+      <div className="relative mb-8 z-30">
         <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-5 shadow-[0_30px_60px_rgba(0,0,0,0.6)] border-4 border-gray-100 w-full max-w-xs mx-auto transform transition-all duration-300 hover:scale-[1.02]">
           <div className="flex justify-between items-start mb-4">
             <div className="flex flex-col items-center">
@@ -90,7 +107,7 @@ const MessageWall: React.FC<MessageWallProps> = ({ onSent }) => {
               placeholder="YOUR NAME"
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
-              className="w-full bg-transparent border-b-2 border-gray-100 text-gray-800 p-2 text-sm font-bold outline-none focus:border-[#ff0033] transition-colors"
+              className="w-full bg-transparent border-b-2 border-gray-100 text-gray-800 p-2 text-sm font-bold outline-none focus:border-[#ff0033] transition-colors text-center"
             />
             <textarea
               rows={3}
@@ -105,7 +122,7 @@ const MessageWall: React.FC<MessageWallProps> = ({ onSent }) => {
               disabled={isFlying}
               className="w-full bg-[#ff0033] text-white py-3 rounded-xl font-black text-xs uppercase tracking-widest hover:bg-red-700 transition-all active:scale-95 shadow-xl shadow-red-900/20"
             >
-              {isFlying ? 'SHUFFLING...' : 'DEAL YOUR MESSAGE'}
+              {isFlying ? 'SHUFFLING...' : '發牌應援'}
             </button>
           </div>
         </form>
@@ -122,7 +139,7 @@ const MessageWall: React.FC<MessageWallProps> = ({ onSent }) => {
       </div>
 
       {/* 牌堆視覺區 (Card Sea) */}
-      <div className="relative w-full h-[600px] mt-10 overflow-hidden rounded-t-[3rem] bg-gradient-to-b from-[#111] to-[#0a0a0a] border-t border-white/5">
+      <div className="relative w-full h-[500px] mt-4 overflow-hidden rounded-t-[3rem] bg-gradient-to-b from-[#111] to-[#0a0a0a] border-t border-white/5 shadow-inner">
         <div className="absolute inset-0 flex flex-wrap justify-center items-start gap-1 p-8 overflow-y-auto pb-48 pt-12 custom-scrollbar">
           {history.map((h, i) => (
             <div 
@@ -131,12 +148,18 @@ const MessageWall: React.FC<MessageWallProps> = ({ onSent }) => {
                 ${h.colorTheme === 'dark' 
                   ? 'bg-[#1a1a1a] border-[#d4af37] text-white z-20' 
                   : 'bg-white border-gray-200 text-gray-800 z-10'
-                }`}
+                }
+                ${h.isLocal ? 'ring-2 ring-[#ff0033]/50' : ''}`}
               style={{ 
                 transform: `rotate(${h.rotation}deg) translate(${h.offsetX}px, ${h.offsetY}px)`,
                 marginTop: i > 0 ? '-60px' : '0' 
               }}
             >
+              {h.isLocal && (
+                <div className="absolute -top-2 -right-2 bg-[#ff0033] text-white text-[7px] font-black px-1.5 py-0.5 rounded-md z-30 shadow-md">
+                  YOURS
+                </div>
+              )}
               <div className="flex justify-between items-start mb-2">
                 <div className="flex flex-col items-center">
                   <span className={`text-[10px] font-black leading-none ${h.colorTheme === 'dark' ? 'text-[#d4af37]' : 'text-red-500'}`}>H</span>
@@ -164,10 +187,20 @@ const MessageWall: React.FC<MessageWallProps> = ({ onSent }) => {
         
         {/* 裝飾性遮罩 */}
         <div className="absolute top-0 inset-x-0 h-16 bg-gradient-to-b from-[#111] to-transparent pointer-events-none z-30"></div>
-        <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent pointer-events-none z-30 flex items-end justify-center pb-10">
-          <p className="text-[10px] text-gray-600 font-bold uppercase tracking-[0.4em] animate-pulse">Hidden CARD Pile</p>
+        <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent pointer-events-none z-30 flex items-end justify-center pb-6">
+          <p className="text-[8px] text-gray-700 font-bold uppercase tracking-[0.5em] animate-pulse italic">The Sea of Hidden Cards</p>
         </div>
       </div>
+      
+        {/* 邀請分享文字 */}
+        <div className="mt-6 text-center animate-fadeIn px-6">
+          <p className="text-gray-500 text-[10px] leading-relaxed font-medium">
+            💡 <span className="text-white">隱藏小任務：</span><br/>
+            發牌成功後，歡迎<span className="text-[#d4af37]">截圖留言畫面</span>並分享至限動，<br/>
+            標記 <span className="text-[#daf1f2] font-bold">@chingtian1992_kard</span> ，<br/>
+            讓更多人看見！也將有機會收錄進官方收藏卡堆喔！
+          </p>
+        </div>
 
       <style>{`
         .custom-scrollbar::-webkit-scrollbar {
@@ -187,6 +220,13 @@ const MessageWall: React.FC<MessageWallProps> = ({ onSent }) => {
         }
         .animate-cardLand {
           animation: cardLand 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 1s ease-out forwards;
         }
       `}</style>
     </div>
