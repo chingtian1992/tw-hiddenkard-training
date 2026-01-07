@@ -44,7 +44,7 @@ const TrainingGuide: React.FC = () => {
                   <span className="text-[7px] bg-gray-700 text-gray-300 px-1.5 py-0.5 rounded uppercase font-bold tracking-tighter">無應援</span>
                 )}
               </div>
-               <p className="text-[9px] text-gray-500 uppercase tracking-widest font-black">{song.member} 訓練師</p>
+               <p className="text-[9px] text-gray-500 uppercase tracking-widest font-black"></p>
             </div>
             
             <div className="flex flex-col gap-2 p-4 shrink-0">
