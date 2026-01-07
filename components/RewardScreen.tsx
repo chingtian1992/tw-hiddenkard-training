@@ -140,66 +140,75 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
         </div>
       </div>
 
-      {/* Digital Certificate Card Container */}
-      <div className="relative group mb-10">
-        <div 
-          ref={cardRef}
-          id="hidden-card" 
-          className="relative w-full max-w-[300px] aspect-[2/3] bg-[#e5e5e2] border-4 border-[#d4af37] rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(212,175,55,0.3)]"
-        >
-          {/* 移除了 gold-shimmer 以防止截圖殘影，改為靜態金屬漸層 */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-[#d4af37]/10 via-transparent to-[#d4af37]/5 opacity-40 pointer-events-none"></div>
+{/* Digital Certificate Card Container */}
+<div className="relative group mb-10">
+  <div 
+    ref={cardRef}
+    id="hidden-card" 
+    className="relative w-full max-w-[300px] aspect-[2/3] bg-[#0a0a0a] border-4 border-[#d4af37] rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(212,175,55,0.3)]"
+  >
+    {/* 背景光影效果 - 增加環境光感 */}
+    <div className="absolute inset-0 bg-gradient-to-tr from-[#d4af37]/10 via-transparent to-[#d4af37]/10 opacity-60 pointer-events-none z-10"></div>
+    
+    {/* 內容層 */}
+    <div className="relative h-full flex flex-col p-5 z-20">
+      {/* 頂部文字 - 金屬浮雕效果 */}
+      <div className="w-full flex justify-between font-cinzel text-3xl font-black leading-none filter drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]">
+        <span className="bg-gradient-to-b from-[#f9e498] via-[#d4af37] to-[#8a6d3b] bg-clip-text text-transparent">K</span>
+        <span className="bg-gradient-to-b from-[#f9e498] via-[#d4af37] to-[#8a6d3b] bg-clip-text text-transparent">A</span>
+      </div>
+
+      <div className="flex-1 flex flex-col items-center justify-center">
+        {/* 頭像區域 */}
+        <div className="relative w-32 h-32 mb-6">
+          <div className="absolute inset-0 border-4 border-[#d4af37] rounded-full shadow-[0_0_20px_rgba(212,175,55,0.3)]"></div>
+          <div className="absolute inset-1.5 bg-[#050505] rounded-full overflow-hidden flex items-center justify-center border border-[#d4af37]/40 shadow-inner">
+            {profilePic ? (
+              <img src={profilePic} alt="Profile" className="w-full h-full object-cover" crossOrigin="anonymous" />
+            ) : (
+              <div className="text-[#d4af37] text-4xl filter drop-shadow-[0_0_10px_rgba(212,175,55,0.5)]">🃏</div>
+            )}
+          </div>
+        </div>
+
+        <div className="text-center">
+          {/* 標題 - 銀屬感漸層 */}
+          <h3 className="text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-slate-400 text-2xl font-bold font-cinzel tracking-tighter filter drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">
+            Hidden KARD
+          </h3>
           
-          <div className="relative h-full flex flex-col p-5 z-10">
-            <div className="w-full flex justify-between text-[#d4af37] font-cinzel text-3xl font-black opacity-80 leading-none">
-              <span>K</span>
-              <span>A</span>
-            </div>
-
-            <div className="flex-1 flex flex-col items-center justify-center">
-              <div className="relative w-32 h-32 mb-5">
-                {/* 移除了 gold-shimmer 和 animate-pulse，確保截圖品質穩定 */}
-                <div className="absolute inset-0 border-4 border-[#d4af37] rounded-full shadow-[0_0_15px_rgba(212,175,55,0.2)]"></div>
-                <div className="absolute inset-1.5 bg-black rounded-full overflow-hidden flex items-center justify-center border border-[#d4af37]/30">
-                  {profilePic ? (
-                    <img src={profilePic} alt="Profile" className="w-full h-full object-cover" crossOrigin="anonymous" />
-                  ) : (
-                    <div className="text-[#d4af37] text-4xl">🃏</div>
-                  )}
-                </div>
-              </div>
-
-              <div className="text-center">
-                <h3 className="text-white text-2xl font-bold font-cinzel tracking-tighter">Hidden KARD</h3>
-                <div className="mt-2 inline-block">
-                  <p className="text-[#d4af37] text-xl font-black bg-black/60 px-5 py-1.5 rounded-lg border border-[#d4af37]/30 shadow-lg">
-                    {userName || 'HIDDEN'}
-                  </p>
-                </div>
-                
-                <div className="mt-4">
-                  <span className="px-3 py-1 bg-[#ff0033] text-white rounded-full text-[8px] font-black tracking-[0.2em] uppercase shadow-[0_0_15px_rgba(255,0,51,0.5)]">
-                    CERTIFIED JOKER
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="w-full mt-auto">
-               <p className="text-[9px] text-[#d4af37]/60 font-cinzel tracking-[0.2em] mb-3 text-center uppercase font-bold">
-                 Member ID: {memberId}
-               </p>
-               <div className="w-full flex justify-between text-[#d4af37] font-cinzel text-3xl font-black opacity-80 leading-none">
-                  <span>R</span>
-                  <span>D</span>
-               </div>
-            </div>
+          {/* 使用者名稱 - 深色鑲嵌感 */}
+          <div className="mt-3 inline-block">
+            <p className="text-[#d4af37] text-xl font-black bg-black/80 px-6 py-2 rounded-lg border border-[#d4af37]/40 shadow-[inset_0_0_10px_rgba(212,175,55,0.1),0_5_15px_rgba(0,0,0,0.5)] tracking-wide">
+              {userName || 'HIDDEN'}
+            </p>
           </div>
           
-        {/* 菱格紋背景層 */}
-      <div 
-        className="absolute inset-0 opacity-20 pointer-events-none" 
-        style={{
+          <div className="mt-5">
+            <span className="px-4 py-1.5 bg-[#ff0033] text-white rounded-full text-[9px] font-black tracking-[0.25em] uppercase shadow-[0_0_20px_rgba(255,0,51,0.6)] border border-white/20">
+              CERTIFIED JOKER
+            </span>
+          </div>
+        </div>
+      </div>
+
+      {/* 底部區域 */}
+      <div className="w-full mt-auto">
+         <p className="text-[10px] text-[#d4af37]/70 font-cinzel tracking-[0.3em] mb-4 text-center uppercase font-black filter drop-shadow-[0_1px_1px_rgba(0,0,0,1)]">
+           Member ID: {memberId}
+         </p>
+         {/* 底部文字 - 金屬浮雕效果 */}
+         <div className="w-full flex justify-between font-cinzel text-3xl font-black leading-none filter drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]">
+            <span className="bg-gradient-to-b from-[#f9e498] via-[#d4af37] to-[#8a6d3b] bg-clip-text text-transparent">R</span>
+            <span className="bg-gradient-to-b from-[#f9e498] via-[#d4af37] to-[#8a6d3b] bg-clip-text text-transparent">D</span>
+         </div>
+      </div>
+    </div>
+    
+    {/* 菱格紋背景層 - 確保在最底層且不遮擋文字 */}
+    <div 
+      className="absolute inset-0 opacity-25 pointer-events-none z-0" 
+      style={{
         backgroundColor: '#0a0a0a',
         backgroundImage: `
           linear-gradient(30deg, #d4af37 12%, transparent 12.5%, transparent 87%, #d4af37 87.5%, #d4af37),
@@ -209,12 +218,12 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
           linear-gradient(60deg, #d4af37 25%, transparent 25.5%, transparent 75%, #d4af37 75%, #d4af37),
           linear-gradient(60deg, #d4af37 25%, transparent 25.5%, transparent 75%, #d4af37 75%, #d4af37)
         `,
-        backgroundSize: '40px 70px',
-        backgroundPosition: '0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px'
-        }}
-      ></div>
-        </div>
-      </div>
+        backgroundSize: '45px 80px',
+        backgroundPosition: '0 0, 0 0, 22.5px 40px, 22.5px 40px, 0 0, 22.5px 40px'
+      }}
+    ></div>
+  </div>
+</div>
 
       {/* Button Group */}
       <div className="w-full max-w-xs space-y-4">
