@@ -244,8 +244,6 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
         </button>
       </div>
     </div>
-  );
-};
 
 {/* Verification Area - 確保這段在按鈕下方 */}
       <div className="mt-12 bg-[#1a1a1a] p-8 rounded-[2.5rem] border-2 border-[#d4af37]/40 text-center w-full max-w-sm shadow-[0_20px_50px_rgba(212,175,55,0.1)]">
@@ -270,4 +268,7 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
           </p>
         </div>
       </div>
+    );
+};
+
 export default RewardScreen;
