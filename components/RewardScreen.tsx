@@ -27,7 +27,6 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
     }
   };
 
-  // 方法一：優化後的 html2canvas 擷取邏輯
   const captureCard = async (): Promise<Blob | null> => {
     if (!cardRef.current) return null;
     
@@ -39,18 +38,15 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
         useCORS: true,
         scale: 3, 
         backgroundColor: '#0a0a0a',
-        // 核心修正：在擷取瞬間修改副本樣式
         onclone: (clonedDoc: Document) => {
           const gradientTexts = clonedDoc.querySelectorAll('.text-transparent');
           gradientTexts.forEach((el) => {
             const htmlEl = el as HTMLElement;
-            // 移除漸層與透明，改為實心金色以確保正確渲染
             htmlEl.style.background = 'none';
             htmlEl.style.webkitBackgroundClip = 'unset';
             htmlEl.style.backgroundClip = 'unset';
             htmlEl.style.color = '#d4af37'; 
             htmlEl.style.opacity = '1';
-            // 針對 Hidden KARD 字樣 (原本是銀白漸層)
             if (htmlEl.innerText.includes('Hidden KARD')) {
               htmlEl.style.color = '#ffffff';
             }
@@ -119,6 +115,7 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
 
   return (
     <div className="p-6 pb-32 flex flex-col items-center">
+      {/* 閃光效果 */}
       {showFlash && <div className="fixed inset-0 bg-white z-[100] pointer-events-none opacity-50" />}
       
       <h2 className="text-3xl font-cinzel text-[#d4af37] text-center mb-2">集牌完成！</h2>
@@ -155,11 +152,9 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
           id="hidden-card" 
           className="relative w-full max-w-[300px] aspect-[2/3] bg-[#0a0a0a] border-4 border-[#d4af37] rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(212,175,55,0.3)]"
         >
-          {/* 背景光效 */}
           <div className="absolute inset-0 bg-gradient-to-tr from-[#d4af37]/10 via-transparent to-[#d4af37]/10 opacity-60 pointer-events-none z-10"></div>
           
           <div className="relative h-full flex flex-col p-5 z-20">
-            {/* 頂部文字 K A */}
             <div className="w-full flex justify-between font-cinzel text-3xl font-black leading-none filter drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]">
               <span className="bg-gradient-to-b from-[#f9e498] via-[#d4af37] to-[#8a6d3b] bg-clip-text text-transparent">K</span>
               <span className="bg-gradient-to-b from-[#f9e498] via-[#d4af37] to-[#8a6d3b] bg-clip-text text-transparent">A</span>
@@ -205,7 +200,6 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
             </div>
           </div>
           
-          {/* 菱格紋背景 */}
           <div 
             className="absolute inset-0 opacity-25 pointer-events-none z-0" 
             style={{
@@ -243,9 +237,8 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
           <span>📱 分享至 Instagram</span>
         </button>
       </div>
-    </div>
 
-{/* Verification Area - 確保這段在按鈕下方 */}
+      {/* Verification Area - 核銷區現在包含在主 div 內了 */}
       <div className="mt-12 bg-[#1a1a1a] p-8 rounded-[2.5rem] border-2 border-[#d4af37]/40 text-center w-full max-w-sm shadow-[0_20px_50px_rgba(212,175,55,0.1)]">
         <div className="mb-4">
           <span className="bg-[#d4af37] text-black text-[10px] px-4 py-1 rounded-full font-black uppercase tracking-widest">
@@ -268,7 +261,8 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
           </p>
         </div>
       </div>
-    );
+    </div> // 主容器結束標籤
+  );
 };
 
 export default RewardScreen;
