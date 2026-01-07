@@ -6,10 +6,15 @@ interface RewardScreenProps {
   memberId: string;
 }
 
+declare var html2canvas: any;
+
 const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memberId }) => {
   const [userName, setUserName] = useState(initialName);
   const [profilePic, setProfilePic] = useState<string | null>(null);
+  const [isCapturing, setIsCapturing] = useState(false);
+  const [showFlash, setShowFlash] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -22,26 +27,87 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
     }
   };
 
-  const handleShare = async () => {
-    const shareData = {
-      title: 'KARD: THE HIDDEN CARD',
-      text: `我是 Hidden KARD [${userName}]，這是我的專屬收藏編號：${memberId}！快來跟我一起應援！ @KARD_OFFICIAL`,
-      url: window.location.href,
-    };
+  const captureCard = async (): Promise<Blob | null> => {
+    if (!cardRef.current) return null;
+    
+    // 顯示快門效果
+    setShowFlash(true);
+    setTimeout(() => setShowFlash(false), 400);
 
+    // 使用 html2canvas 擷取
+    const canvas = await html2canvas(cardRef.current, {
+      useCORS: true,
+      scale: 3, // 提高解析度
+      backgroundColor: '#0a0a0a',
+      borderRadius: 24,
+    });
+
+    return new Promise((resolve) => {
+      canvas.toBlob((blob: Blob) => resolve(blob), 'image/jpeg', 0.95);
+    });
+  };
+
+  const handleDownload = async () => {
+    setIsCapturing(true);
+    const blob = await captureCard();
+    if (blob) {
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `KARD_HIDDEN_CARD_${memberId}.jpg`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    }
+    setIsCapturing(false);
+  };
+
+  const handleShare = async () => {
+    const text = `我是 Hidden KARD [${userName}]，這是我的專屬收藏編號：${memberId}！快來跟我一起應援！ @KARD_OFFICIAL`;
+    
+    setIsCapturing(true);
+    const blob = await captureCard();
+    setIsCapturing(false);
+
+    if (blob && navigator.share && navigator.canShare) {
+      const file = new File([blob], 'HiddenCard.jpg', { type: 'image/jpeg' });
+      const shareData = {
+        title: 'KARD: THE HIDDEN CARD',
+        text: text,
+        files: [file],
+      };
+
+      if (navigator.canShare(shareData)) {
+        try {
+          await navigator.share(shareData);
+          return;
+        } catch (err) {
+          console.log('Share failed', err);
+        }
+      }
+    }
+
+    // Fallback if file sharing not supported
     if (navigator.share) {
       try {
-        await navigator.share(shareData);
+        await navigator.share({
+          title: 'KARD: THE HIDDEN CARD',
+          text: text,
+          url: window.location.href,
+        });
       } catch (err) {
-        console.log('Share cancelled or failed');
+        console.log('Text share failed');
       }
     } else {
-      alert(`已準備好分享資訊！\n\n專屬編號：${memberId}\n\n請截圖此卡片，發布至 IG 限動並標記 @KARD_OFFICIAL 吧！`);
+      alert(`已準備好分享資訊！\n\n專屬編號：${memberId}\n\n請長按卡面「下載圖片」後，發布至 IG 限動並標記 @KARD_OFFICIAL 吧！`);
     }
   };
 
   return (
     <div className="p-6 pb-32 flex flex-col items-center">
+      {showFlash && <div className="shutter-flash" />}
+      
       <h2 className="text-3xl font-cinzel text-[#d4af37] text-center mb-2">集牌完成！</h2>
       <p className="text-gray-400 text-center mb-8">專屬【Hidden KARD】收藏卡</p>
 
@@ -75,76 +141,96 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
         </div>
       </div>
 
-      {/* Digital Certificate Card */}
-      <div id="hidden-card" className="relative w-full max-w-[300px] aspect-[2/3] bg-[#0a0a0a] border-4 border-[#d4af37] rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(212,175,55,0.3)] group mb-10">
-        <div className="absolute inset-0 gold-shimmer opacity-20 pointer-events-none"></div>
-        
-        <div className="relative h-full flex flex-col p-5 z-10">
-          <div className="w-full flex justify-between text-[#d4af37] font-cinzel text-3xl font-black opacity-80 leading-none">
-            <span>K</span>
-            <span>A</span>
-          </div>
+      {/* Digital Certificate Card Container */}
+      <div className="relative group mb-10">
+        <div 
+          ref={cardRef}
+          id="hidden-card" 
+          className="relative w-full max-w-[300px] aspect-[2/3] bg-[#0a0a0a] border-4 border-[#d4af37] rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(212,175,55,0.3)]"
+        >
+          <div className="absolute inset-0 gold-shimmer opacity-20 pointer-events-none"></div>
+          
+          <div className="relative h-full flex flex-col p-5 z-10">
+            <div className="w-full flex justify-between text-[#d4af37] font-cinzel text-3xl font-black opacity-80 leading-none">
+              <span>K</span>
+              <span>A</span>
+            </div>
 
-          <div className="flex-1 flex flex-col items-center justify-center">
-            <div className="relative w-32 h-32 mb-5">
-              <div className="absolute inset-0 border-4 border-[#d4af37] rounded-full gold-shimmer animate-pulse"></div>
-              <div className="absolute inset-1.5 bg-black rounded-full overflow-hidden flex items-center justify-center border border-[#d4af37]/30">
-                {profilePic ? (
-                  <img src={profilePic} alt="Profile" className="w-full h-full object-cover" />
-                ) : (
-                  <div className="text-[#d4af37] text-4xl">🃏</div>
-                )}
+            <div className="flex-1 flex flex-col items-center justify-center">
+              <div className="relative w-32 h-32 mb-5">
+                <div className="absolute inset-0 border-4 border-[#d4af37] rounded-full gold-shimmer animate-pulse"></div>
+                <div className="absolute inset-1.5 bg-black rounded-full overflow-hidden flex items-center justify-center border border-[#d4af37]/30">
+                  {profilePic ? (
+                    <img src={profilePic} alt="Profile" className="w-full h-full object-cover" crossOrigin="anonymous" />
+                  ) : (
+                    <div className="text-[#d4af37] text-4xl">🃏</div>
+                  )}
+                </div>
+              </div>
+
+              <div className="text-center">
+                <h3 className="text-white text-2xl font-bold font-cinzel tracking-tighter">Hidden KARD</h3>
+                <div className="mt-2 inline-block">
+                  <p className="text-[#d4af37] text-xl font-black bg-black/60 px-5 py-1.5 rounded-lg border border-[#d4af37]/30 shadow-lg">
+                    {userName || 'HIDDEN'}
+                  </p>
+                </div>
+                
+                <div className="mt-4">
+                  <span className="px-3 py-1 bg-[#ff0033] text-white rounded-full text-[8px] font-black tracking-[0.2em] uppercase shadow-[0_0_15px_rgba(255,0,51,0.5)]">
+                    CERTIFIED JOKER
+                  </span>
+                </div>
               </div>
             </div>
 
-            <div className="text-center">
-              <h3 className="text-white text-2xl font-bold font-cinzel tracking-tighter">Hidden KARD</h3>
-              <div className="mt-2 inline-block">
-                <p className="text-[#d4af37] text-xl font-black bg-black/60 px-5 py-1.5 rounded-lg border border-[#d4af37]/30 shadow-lg">
-                  {userName || 'HIDDEN'}
-                </p>
-              </div>
-              
-              <div className="mt-4">
-                <span className="px-3 py-1 bg-[#ff0033] text-white rounded-full text-[8px] font-black tracking-[0.2em] uppercase shadow-[0_0_15px_rgba(255,0,51,0.5)]">
-                  CERTIFIED JOKER
-                </span>
-              </div>
+            <div className="w-full mt-auto">
+               <p className="text-[9px] text-[#d4af37]/60 font-cinzel tracking-[0.2em] mb-3 text-center uppercase font-bold">
+                 Member ID: {memberId}
+               </p>
+               <div className="w-full flex justify-between text-[#d4af37] font-cinzel text-3xl font-black opacity-80 leading-none">
+                  <span>R</span>
+                  <span>D</span>
+               </div>
             </div>
           </div>
-
-          <div className="w-full mt-auto">
-             <p className="text-[9px] text-[#d4af37]/60 font-cinzel tracking-[0.2em] mb-3 text-center uppercase font-bold">
-               Member ID: {memberId}
-             </p>
-             <div className="w-full flex justify-between text-[#d4af37] font-cinzel text-3xl font-black opacity-80 leading-none">
-                <span>R</span>
-                <span>D</span>
-             </div>
-          </div>
+          
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30 pointer-events-none"></div>
         </div>
-        
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30 pointer-events-none"></div>
+      </div>
+
+      {/* Button Group */}
+      <div className="w-full max-w-xs space-y-4">
+        <button 
+          onClick={handleDownload}
+          disabled={isCapturing}
+          className="w-full bg-white text-black py-4 rounded-full font-bold flex items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all shadow-xl shadow-white/10"
+        >
+          <span className="text-lg">💾</span>
+          <span>{isCapturing ? '生成圖片中...' : '下載收藏卡至手機'}</span>
+        </button>
+
+        <button 
+          onClick={handleShare}
+          disabled={isCapturing}
+          className="w-full bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] text-white py-4 rounded-full font-bold flex items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all shadow-xl shadow-pink-900/20"
+        >
+          <span className="text-lg">📱</span>
+          <span>分享至 Instagram</span>
+        </button>
       </div>
 
       {/* Share Instructions */}
-      <div className="text-center mb-6 px-4">
+      <div className="text-center mt-8 mb-6 px-4">
         <p className="text-gray-400 text-xs leading-relaxed">
           <span className="text-white font-bold">分享說明：</span><br/>
-          點擊下方按鈕並選擇「儲存圖片」或直接截圖卡面，<br/>
+          點擊上方按鈕下載卡面圖片，<br/>
           發布至 <span className="text-[#bc1888] font-bold">Instagram 限動</span> 並標記 <span className="text-[#d4af37] font-bold">@KARD_OFFICIAL</span>
         </p>
       </div>
 
-      <button 
-        onClick={handleShare}
-        className="bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] text-white px-12 py-4 rounded-full font-bold flex items-center gap-3 hover:scale-105 active:scale-95 transition-all shadow-xl shadow-pink-900/20"
-      >
-        <span>保存並分享至 Instagram</span>
-      </button>
-
-      {/* Verification Area - Improved for Staff */}
-      <div className="mt-16 bg-[#1a1a1a] p-8 rounded-[2.5rem] border-2 border-[#d4af37]/40 text-center w-full max-w-sm shadow-[0_20px_50px_rgba(212,175,55,0.1)]">
+      {/* Verification Area */}
+      <div className="mt-12 bg-[#1a1a1a] p-8 rounded-[2.5rem] border-2 border-[#d4af37]/40 text-center w-full max-w-sm shadow-[0_20px_50px_rgba(212,175,55,0.1)]">
         <div className="mb-4">
           <span className="bg-[#d4af37] text-black text-[10px] px-4 py-1 rounded-full font-black uppercase tracking-widest">
             Staff Only 現場核銷區
@@ -163,10 +249,6 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
           <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">核銷識別碼</p>
           <p className="text-2xl font-mono font-black text-white tracking-tighter">
             {memberId}
-          </p>
-          <p className="text-[9px] text-gray-600 mt-4 leading-relaxed italic">
-            工作人員請掃描上方 QR Code<br/>
-            或手動輸入編號至核銷表單完成領獎紀錄
           </p>
         </div>
       </div>
