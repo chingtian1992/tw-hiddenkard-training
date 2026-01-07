@@ -63,7 +63,7 @@ const MessageWall: React.FC<MessageWallProps> = ({ onSent }) => {
   return (
     <div className="p-4 min-h-screen bg-[#0a0a0a]">
       <div className="text-center mb-10">
-        <h2 className="text-2xl font-cinzel text-[#d4af37] mb-2 tracking-tight">Hidden's 精神喊話</h2>
+        <h2 className="text-2xl font-cinzel text-[#d4af37] mb-2 tracking-tight">Hidden's 告白</h2>
         <div className="inline-block px-3 py-1 bg-[#ff0033]/10 border border-[#ff0033]/30 rounded-full">
           <p className="text-[#ff0033] text-[9px] font-black uppercase tracking-[0.2em]">Message Wall</p>
         </div>
