@@ -87,7 +87,7 @@ const MessageWall: React.FC<MessageWallProps> = ({ onSent }) => {
           <div className="space-y-4">
             <input
               type="text"
-              placeholder="YOUR NAME / CODE"
+              placeholder="YOUR NAME"
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
               className="w-full bg-transparent border-b-2 border-gray-100 text-gray-800 p-2 text-sm font-bold outline-none focus:border-[#ff0033] transition-colors"
