@@ -122,7 +122,7 @@ const App: React.FC = () => {
         </div>
         
         <div className="absolute bottom-8 text-[10px] text-gray-700 font-bold tracking-[0.5em] uppercase pointer-events-none">
-          Cr. Chingtian1992 x Kardswaggin
+          CHINGTIAN1992 ▲ KARDSWAGGIN
         </div>
       </div>
     );
