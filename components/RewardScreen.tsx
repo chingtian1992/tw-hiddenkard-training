@@ -145,7 +145,7 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
         <div 
           ref={cardRef}
           id="hidden-card" 
-          className="relative w-full max-w-[300px] aspect-[2/3] bg-[#0a0a0a] border-4 border-[#d4af37] rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(212,175,55,0.3)]"
+          className="relative w-full max-w-[300px] aspect-[2/3] bg-[#fff680] border-4 border-[#d4af37] rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(212,175,55,0.3)]"
         >
           {/* 移除了 gold-shimmer 以防止截圖殘影，改為靜態金屬漸層 */}
           <div className="absolute inset-0 bg-gradient-to-tr from-[#d4af37]/10 via-transparent to-[#d4af37]/5 opacity-40 pointer-events-none"></div>
