@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useState, useRef } from 'react';
 
 interface RewardScreenProps {
@@ -151,7 +147,8 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
           id="hidden-card" 
           className="relative w-full max-w-[300px] aspect-[2/3] bg-[#0a0a0a] border-4 border-[#d4af37] rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(212,175,55,0.3)]"
         >
-          <div className="absolute inset-0 gold-shimmer opacity-20 pointer-events-none"></div>
+          {/* 移除了 gold-shimmer 以防止截圖殘影，改為靜態金屬漸層 */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#d4af37]/10 via-transparent to-[#d4af37]/5 opacity-40 pointer-events-none"></div>
           
           <div className="relative h-full flex flex-col p-5 z-10">
             <div className="w-full flex justify-between text-[#d4af37] font-cinzel text-3xl font-black opacity-80 leading-none">
@@ -161,7 +158,8 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
 
             <div className="flex-1 flex flex-col items-center justify-center">
               <div className="relative w-32 h-32 mb-5">
-                <div className="absolute inset-0 border-4 border-[#d4af37] rounded-full gold-shimmer animate-pulse"></div>
+                {/* 移除了 gold-shimmer 和 animate-pulse，確保截圖品質穩定 */}
+                <div className="absolute inset-0 border-4 border-[#d4af37] rounded-full shadow-[0_0_15px_rgba(212,175,55,0.2)]"></div>
                 <div className="absolute inset-1.5 bg-black rounded-full overflow-hidden flex items-center justify-center border border-[#d4af37]/30">
                   {profilePic ? (
                     <img src={profilePic} alt="Profile" className="w-full h-full object-cover" crossOrigin="anonymous" />
