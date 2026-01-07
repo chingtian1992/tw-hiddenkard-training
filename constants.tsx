@@ -50,6 +50,7 @@ export const SONGS: Song[] = [
     correctAnswer: 2, isChallenge: true,
     imageUrl: 'https://i.kfs.io/album/global/30370735,0v1/fit/500x500.jpg',
     videoUrl: 'https://youtu.be/tz23WFb8HM0?si=LjYlAL4D5aaFvSPL',
+    musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-you-in-me-cut.mp3',
   },
      {
     id: 101, title: 'Ride on the wind', artist: 'KARD', member: 'BM', suit: 'spades',
