@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>THE HIDDEN CARD：應援大集訓</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
       body {
@@ -29,6 +30,19 @@
       .card-flipped { transform: rotateY(180deg); }
       .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
       .rotate-y-180 { transform: rotateY(180deg); }
+      
+      /* 快門閃爍效果 */
+      @keyframes flash {
+        0% { background: white; opacity: 0.8; }
+        100% { background: transparent; opacity: 0; }
+      }
+      .shutter-flash {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        pointer-events: none;
+        animation: flash 0.4s ease-out forwards;
+      }
     </style>
   <script type="importmap">
 {
@@ -42,11 +56,9 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
   <body>
     <div id="root"></div>
-    <!-- 這裡的路徑必須正確，Vite 才能找到入口 -->
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>
