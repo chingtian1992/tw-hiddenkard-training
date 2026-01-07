@@ -32,22 +32,22 @@ export const SONGS: Song[] = [
     question: '副歌開始時的第一個應援動作是？', options: ['大聲喊 Oh NaNa', '拍手兩次', '喊 BM 名字', '安靜看表演'],
     correctAnswer: 0, 
     imageUrl: 'https://m.media-amazon.com/images/I/61tewdt1daL._UXNaN_FMjpg_QL85_.jpg',
-    videoUrl: 'https://www.youtube.com/watch?v=yPTcK_S-0tE',
-    chartUrl: 'https://i.imgur.com/example1.jpg', // 之後可替換成你的 Imgur 連結
+    videoUrl: 'https://youtu.be/yPTcKSVAEvA?si=j112PL4A46u0HjEy',
+    chartUrl: 'https://i.imgur.com', // 之後可替換成你的 Imgur 連結
   },
   {
     id: 2, title: 'Don\'t Recall', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
     question: '這首歌最具代表性的哨音部分要跟著做什麼？', options: ['原地跳躍', '左右搖擺', '喊 K.A.R.D', '拿出應援燈揮舞'],
     correctAnswer: 2, 
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvFfb3D1T16n8_r2aPee6Xtr6boYu_ZBSuTw&s',
-    videoUrl: 'https://www.youtube.com/watch?v=41Zzh-mO0vA',
+    videoUrl: 'https://youtu.be/41Dp7Q-SM1Y?si=9roXE_yXSRiCTGos',
   },
   {
     id: 3, title: 'Hola Hola', artist: 'KARD', member: 'Somin', suit: 'hearts',
     question: '副歌 "Hola Hola" 出現時要喊幾次？', options: ['1次', '2次', '3次', '4次'],
     correctAnswer: 1, 
     imageUrl: 'https://upload.wikimedia.org/wikipedia/zh/7/7d/KARD_-_Hola_Hola_%28EP%29.png',
-    videoUrl: 'https://www.youtube.com/watch?v=fS_O8D82_T8',
+    videoUrl: 'https://youtu.be/USx4WyrkfU4?si=3gatR7i-ok1U1Ozp',
   },
   {
     id: 4, title: 'Bomb Bomb', artist: 'KARD', member: 'Jiwoo', suit: 'diamonds',
@@ -61,7 +61,7 @@ export const SONGS: Song[] = [
     question: '開頭 BM 的 Rap 部分應援是要喊什麼？', options: ['Get It!', 'Litty!', 'Dumb!', 'Oh Yeah!'],
     correctAnswer: 0, 
     imageUrl: 'https://upload.wikimedia.org/wikipedia/en/0/01/KARD%27s_Dumb_Litty_2nd_Digital_Single_Cover.jpg',
-    videoUrl: 'https://www.youtube.com/watch?v=2n6f4B4-78A',
+    videoUrl: 'https://youtu.be/W01_e6hw288?si=l0YEeB3sh6TOTZ9s',
   },
   {
     id: 6, title: 'RED MOON', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
@@ -96,7 +96,7 @@ export const SONGS: Song[] = [
     question: '這首歌要大家一起慶祝什麼？', options: ['KARD 生日', 'Hidden KARD 出道', '演唱會成功', '單純好心情'],
     correctAnswer: 1, 
     imageUrl: 'https://picsum.photos/seed/cake/400/600',
-    videoUrl: 'https://www.youtube.com/watch?v=Kz698C2OayE',
+    videoUrl: 'https://youtu.be/uho3n38lq7o?si=znaQITfupCti8hau',
   },
   {
     id: 11, title: 'Touch', artist: 'KARD', member: 'Somin', suit: 'hearts',
