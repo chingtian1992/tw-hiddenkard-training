@@ -145,7 +145,7 @@ const App: React.FC = () => {
         {activeTab === 'dashboard' && (
           <div className="p-6">
             <section className="mb-12 text-center">
-              <h2 className="text-xl font-cinzel text-[#d4af37] mb-8 uppercase tracking-[0.2em] font-black">訓練進度總覽</h2>
+              <h2 className="text-xl font-cinzel text-[#d4af37] mb-8 uppercase tracking-[0.2em] font-black">進度總覽</h2>
               <div className="flex justify-center gap-2 overflow-x-auto pb-8 no-scrollbar">
                 {['spades', 'clubs', 'hearts', 'diamonds', 'hidden'].map((suit, i) => (
                   <div key={suit} className="flex flex-col items-center">
@@ -194,7 +194,7 @@ const App: React.FC = () => {
 
               <button onClick={() => setActiveTab('message')} className="bg-[#111] border border-gray-800/50 p-6 rounded-[2rem] flex items-center justify-between group hover:border-white/30 transition-all active:scale-95 shadow-lg">
                 <div className="text-left">
-                  <h3 className="text-lg font-black tracking-tight mb-1 uppercase">精神喊話</h3>
+                  <h3 className="text-lg font-black tracking-tight mb-1 uppercase">隱藏告白</h3>
                   <p className="text-xs text-gray-500 font-medium">{gameState.messageSent ? '訊息已送往後台 ✓' : '留下給成員的留言'}</p>
                 </div>
                 <div className="w-12 h-12 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center group-hover:bg-white group-hover:text-black group-hover:border-transparent transition-all">
@@ -249,7 +249,7 @@ const App: React.FC = () => {
         </button>
         <button onClick={() => setActiveTab('guide')} className={`flex flex-col items-center gap-1.5 transition-all ${activeTab === 'guide' ? 'text-white scale-110' : 'text-gray-600'}`}>
           <div className="text-xl">📖</div>
-          <span className="text-[8px] font-black uppercase tracking-[0.2em]">攻略</span>
+          <span className="text-[8px] font-black uppercase tracking-[0.2em]">清單</span>
         </button>
         <button onClick={() => setActiveTab('message')} className={`flex flex-col items-center gap-1.5 transition-all ${activeTab === 'message' ? 'text-blue-500 scale-110' : 'text-gray-600'}`}>
           <div className="text-xl">✍️</div>
