@@ -112,6 +112,7 @@ export const SONGS: Song[] = [
     correctAnswer: 0, isChallenge: true,
     imageUrl: 'https://i.scdn.co/image/ab67616d0000b273735a45653bf69f7f50843a44',
     videoUrl: 'https://youtu.be/7UciiiKGGYA?si=83m-L172_YV1GzbP',
+    musicUrl: 'https://chingtian1992.github.io/exam-audio/Tell My Momma cut.mp3',
   },
   {
     id: 12, title: 'Touch', artist: 'KARD', member: 'Somin', suit: 'hearts',
