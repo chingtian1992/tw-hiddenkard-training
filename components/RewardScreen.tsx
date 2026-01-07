@@ -247,4 +247,27 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
   );
 };
 
+{/* Verification Area - 確保這段在按鈕下方 */}
+      <div className="mt-12 bg-[#1a1a1a] p-8 rounded-[2.5rem] border-2 border-[#d4af37]/40 text-center w-full max-w-sm shadow-[0_20px_50px_rgba(212,175,55,0.1)]">
+        <div className="mb-4">
+          <span className="bg-[#d4af37] text-black text-[10px] px-4 py-1 rounded-full font-black uppercase tracking-widest">
+            Staff Only 現場核銷區
+          </span>
+        </div>
+        
+        <div className="bg-white p-4 rounded-2xl inline-block shadow-2xl mb-6">
+          <img 
+            src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=KARD_FAN_${memberId}`} 
+            alt="QR" 
+            className="w-32 h-32" 
+          />
+        </div>
+
+        <div className="space-y-1">
+          <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">核銷識別碼</p>
+          <p className="text-2xl font-mono font-black text-white tracking-tighter">
+            {memberId}
+          </p>
+        </div>
+      </div>
 export default RewardScreen;
