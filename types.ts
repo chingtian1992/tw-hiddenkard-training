@@ -14,6 +14,7 @@ export interface Song {
   videoUrl?: string;     // 新增：YouTube 或其他影片連結
   chartUrl?: string;     // 新增：應援圖卡圖片連結
   musicUrl?: string;     // 新增：背景試聽音樂連結
+  isChallenge: boolean;  // 新增：是否納入應援挑戰題目
 }
 
 export interface GameState {
