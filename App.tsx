@@ -18,7 +18,7 @@ const App: React.FC = () => {
   // 生成隨機 ID 函式
   const generateMemberId = () => {
     const randomHex = () => Math.floor(Math.random() * 65536).toString(16).toUpperCase().padStart(4, '0');
-    return `HK-2024-${randomHex()}-${randomHex()}`;
+    return `HIDDENs-2026-${randomHex()}`;
   };
 
   const [gameState, setGameState] = useState<GameState>(() => {
