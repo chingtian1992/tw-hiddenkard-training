@@ -26,7 +26,7 @@ const TrainingGuide: React.FC = () => {
 
   return (
     <div className="p-6 pb-32">
-      <h2 className="text-2xl font-cinzel text-[#d4af37] text-center mb-6">必勝攻略：應援練習庫</h2>
+      <h2 className="text-2xl font-cinzel text-[#d4af37] text-center mb-6">精選清單：入門的必看指南</h2>
       <p className="text-gray-400 text-sm mb-8 text-center px-4 leading-relaxed">收錄 KARD 精選曲目，點擊按鈕進入練習或欣賞模式</p>
       
       <div className="grid grid-cols-1 gap-4">
