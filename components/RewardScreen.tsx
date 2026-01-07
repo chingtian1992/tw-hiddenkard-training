@@ -108,17 +108,17 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
       {showFlash && <div className="shutter-flash" />}
       
       <h2 className="text-3xl font-cinzel text-[#d4af37] text-center mb-2">集牌完成！</h2>
-      <p className="text-gray-400 text-center mb-8 text-xs tracking-widest font-bold">專屬【Hidden KARD】收藏卡</p>
+      <p className="text-gray-400 text-center mb-8">專屬【Hidden KARD】收藏卡</p>
 
       {/* Personalization UI */}
-      <div className="w-full max-w-sm mb-8 space-y-4 bg-[#1a1a1a] p-4 rounded-2xl border border-gray-800 shadow-xl">
+      <div className="w-full max-w-sm mb-8 space-y-4 bg-[#1a1a1a] p-4 rounded-2xl border border-gray-800">
         <div className="flex flex-col gap-2">
           <label className="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-black">Step 1: 自訂暱稱</label>
           <input 
             type="text" 
             value={userName} 
             onChange={(e) => setUserName(e.target.value)}
-            className="bg-black border border-gray-800 text-white rounded-xl p-3 text-sm focus:border-[#d4af37] outline-none transition-all font-bold text-center"
+            className="bg-black border border-gray-800 text-white rounded-xl p-3 text-sm focus:border-[#d4af37] outline-none transition-all"
             placeholder="輸入你的暱稱"
           />
         </div>
@@ -126,7 +126,7 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
           <label className="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-black">Step 2: 上傳個人相片</label>
           <button 
             onClick={() => fileInputRef.current?.click()}
-            className="bg-gray-800 text-white py-3 rounded-xl text-xs font-bold hover:bg-gray-700 transition-colors border border-gray-700 uppercase tracking-widest"
+            className="bg-gray-800 text-white py-3 rounded-xl text-xs font-bold hover:bg-gray-700 transition-colors border border-gray-700"
           >
             {profilePic ? '更換頭像 📸' : '選擇頭像 📸'}
           </button>
@@ -145,26 +145,22 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
         <div 
           ref={cardRef}
           id="hidden-card" 
-          className="relative w-full max-w-[300px] aspect-[2/3] bg-[#0a0a0a] border-4 border-[#d4af37] rounded-3xl overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.8)]"
+          className="relative w-full max-w-[300px] aspect-[2/3] bg-[#0a0a0a] border-4 border-[#d4af37] rounded-3xl overflow-hidden shadow-[0_0_80px_rgba(212,175,55,0.3)]"
         >
-          {/* 背景層 1: 隱約的消光絲絨菱格紋理 */}
-          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diamond-upholstery.png')] opacity-20 pointer-events-none mix-blend-overlay"></div>
+          {/* 移除了 gold-shimmer 以防止截圖殘影，改為靜態金屬漸層 */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-[#d4af37]/10 via-transparent to-[#d4af37]/5 opacity-40 pointer-events-none"></div>
           
-          {/* 背景層 2: 靜態消光漸層（模擬絲絨受光效果） */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/40 pointer-events-none"></div>
-          
-          <div className="relative h-full flex flex-col p-6 z-10">
-            {/* 卡面頂部標誌 */}
+          <div className="relative h-full flex flex-col p-5 z-10">
             <div className="w-full flex justify-between text-[#d4af37] font-cinzel text-3xl font-black opacity-80 leading-none">
               <span>K</span>
               <span>A</span>
             </div>
 
             <div className="flex-1 flex flex-col items-center justify-center">
-              {/* 中央頭像環 - 靜態高質感 */}
-              <div className="relative w-32 h-32 mb-6">
-                <div className="absolute inset-0 border-4 border-[#d4af37] rounded-full shadow-[0_0_20px_rgba(212,175,55,0.15)]"></div>
-                <div className="absolute inset-1.5 bg-black rounded-full overflow-hidden flex items-center justify-center border border-[#d4af37]/20">
+              <div className="relative w-32 h-32 mb-5">
+                {/* 移除了 gold-shimmer 和 animate-pulse，確保截圖品質穩定 */}
+                <div className="absolute inset-0 border-4 border-[#d4af37] rounded-full shadow-[0_0_15px_rgba(212,175,55,0.2)]"></div>
+                <div className="absolute inset-1.5 bg-black rounded-full overflow-hidden flex items-center justify-center border border-[#d4af37]/30">
                   {profilePic ? (
                     <img src={profilePic} alt="Profile" className="w-full h-full object-cover" crossOrigin="anonymous" />
                   ) : (
@@ -173,27 +169,25 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
                 </div>
               </div>
 
-              {/* 資訊區 */}
               <div className="text-center">
-                <p className="text-[10px] text-gray-500 font-cinzel tracking-[0.4em] uppercase mb-1 font-bold">Hidden KARD</p>
-                <div className="mb-4">
-                  <h3 className="text-white text-3xl font-black font-cinzel tracking-tight drop-shadow-md">
+                <h3 className="text-white text-2xl font-bold font-cinzel tracking-tighter">Hidden KARD</h3>
+                <div className="mt-2 inline-block">
+                  <p className="text-[#d4af37] text-xl font-black bg-black/60 px-5 py-1.5 rounded-lg border border-[#d4af37]/30 shadow-lg">
                     {userName || 'HIDDEN'}
-                  </h3>
+                  </p>
                 </div>
                 
-                <div>
-                  <span className="px-5 py-1.5 bg-[#ff0033] text-white rounded-full text-[9px] font-black tracking-[0.2em] uppercase shadow-[0_8px_20px_rgba(255,0,51,0.3)]">
+                <div className="mt-4">
+                  <span className="px-3 py-1 bg-[#ff0033] text-white rounded-full text-[8px] font-black tracking-[0.2em] uppercase shadow-[0_0_15px_rgba(255,0,51,0.5)]">
                     CERTIFIED JOKER
                   </span>
                 </div>
               </div>
             </div>
 
-            {/* 卡面底部資訊 */}
             <div className="w-full mt-auto">
-               <p className="text-[9px] text-[#d4af37]/60 font-mono tracking-[0.2em] mb-3 text-center uppercase font-bold">
-                 NO. {memberId}
+               <p className="text-[9px] text-[#d4af37]/60 font-cinzel tracking-[0.2em] mb-3 text-center uppercase font-bold">
+                 Member ID: {memberId}
                </p>
                <div className="w-full flex justify-between text-[#d4af37] font-cinzel text-3xl font-black opacity-80 leading-none">
                   <span>R</span>
@@ -202,8 +196,7 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
             </div>
           </div>
           
-          {/* 反光效果 - 僅限網頁端 Hover，不影響下載圖片 */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out pointer-events-none z-20"></div>
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-30 pointer-events-none"></div>
         </div>
       </div>
 
@@ -212,16 +205,16 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
         <button 
           onClick={handleDownload}
           disabled={isCapturing}
-          className="w-full bg-white text-black py-4 rounded-full font-black text-xs uppercase tracking-widest flex items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all shadow-xl shadow-white/5"
+          className="w-full bg-white text-black py-4 rounded-full font-bold flex items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all shadow-xl shadow-white/10"
         >
           <span className="text-lg">💾</span>
-          <span>{isCapturing ? '正在生成圖片...' : '下載絲絨認證卡'}</span>
+          <span>{isCapturing ? '生成圖片中...' : '下載收藏卡至手機'}</span>
         </button>
 
         <button 
           onClick={handleShare}
           disabled={isCapturing}
-          className="w-full bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] text-white py-4 rounded-full font-black text-xs uppercase tracking-widest flex items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all shadow-xl shadow-pink-900/10"
+          className="w-full bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] text-white py-4 rounded-full font-bold flex items-center justify-center gap-3 hover:scale-105 active:scale-95 transition-all shadow-xl shadow-pink-900/20"
         >
           <span className="text-lg">📱</span>
           <span>分享至 Instagram</span>
@@ -229,33 +222,33 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
       </div>
 
       {/* Share Instructions */}
-      <div className="text-center mt-10 mb-6 px-4">
-        <p className="text-gray-500 text-[10px] leading-relaxed font-bold">
-          <span className="text-gray-300">已套用消光絲絨紋理。</span><br/>
-          下載圖片後發布至 <span className="text-[#bc1888]">Instagram 限動</span><br/>
-          並標記 <span className="text-[#d4af37]">@KARD_OFFICIAL</span>
+      <div className="text-center mt-8 mb-6 px-4">
+        <p className="text-gray-400 text-xs leading-relaxed">
+          <span className="text-white font-bold">分享說明：</span><br/>
+          點擊上方按鈕下載卡面圖片，<br/>
+          發布至 <span className="text-[#bc1888] font-bold">Instagram 限動</span> 並標記 <span className="text-[#d4af37] font-bold">@KARD_OFFICIAL</span>
         </p>
       </div>
 
       {/* Verification Area */}
-      <div className="mt-12 bg-[#121212] p-8 rounded-[2.5rem] border border-gray-800 text-center w-full max-w-sm shadow-inner">
+      <div className="mt-12 bg-[#1a1a1a] p-8 rounded-[2.5rem] border-2 border-[#d4af37]/40 text-center w-full max-w-sm shadow-[0_20px_50px_rgba(212,175,55,0.1)]">
         <div className="mb-4">
-          <span className="bg-[#d4af37]/10 text-[#d4af37] text-[10px] px-5 py-1.5 rounded-full font-black uppercase tracking-widest border border-[#d4af37]/20">
-            Staff Verification
+          <span className="bg-[#d4af37] text-black text-[10px] px-4 py-1 rounded-full font-black uppercase tracking-widest">
+            Staff Only 現場核銷區
           </span>
         </div>
         
-        <div className="bg-white p-5 rounded-3xl inline-block shadow-2xl mb-6 ring-4 ring-white/5">
+        <div className="bg-white p-4 rounded-2xl inline-block shadow-2xl mb-6">
           <img 
             src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=KARD_FAN_${memberId}`} 
             alt="QR" 
-            className="w-32 h-32 opacity-90" 
+            className="w-32 h-32" 
           />
         </div>
 
         <div className="space-y-1">
-          <p className="text-[9px] text-gray-700 uppercase tracking-widest font-black">MEMBER ID</p>
-          <p className="text-lg font-mono font-black text-white/30 tracking-tighter italic">
+          <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">核銷識別碼</p>
+          <p className="text-2xl font-mono font-black text-white tracking-tighter">
             {memberId}
           </p>
         </div>
@@ -265,4 +258,3 @@ const RewardScreen: React.FC<RewardScreenProps> = ({ userName: initialName, memb
 };
 
 export default RewardScreen;
-
