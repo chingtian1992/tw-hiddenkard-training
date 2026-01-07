@@ -184,8 +184,8 @@ const App: React.FC = () => {
 
               <button onClick={() => setActiveTab('guide')} className="bg-[#111] border border-gray-800/50 p-6 rounded-[2rem] flex items-center justify-between group hover:border-[#d4af37]/50 transition-all active:scale-95 shadow-lg">
                 <div className="text-left">
-                  <h3 className="text-lg font-black tracking-tight mb-1 uppercase">必勝攻略</h3>
-                  <p className="text-xs text-gray-500 font-medium">所有主打與應援資源</p>
+                  <h3 className="text-lg font-black tracking-tight mb-1 uppercase">精選清單</h3>
+                  <p className="text-xs text-gray-500 font-medium">所有主打與必看應援指南</p>
                 </div>
                 <div className="w-12 h-12 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center group-hover:bg-[#d4af37] group-hover:border-transparent transition-all">
                   <span className="text-xl">📖</span>
