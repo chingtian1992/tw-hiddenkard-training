@@ -11,10 +11,11 @@ export interface Song {
   options: string[];
   correctAnswer: number;
   imageUrl: string;      // 歌曲封面/背景圖
-  videoUrl?: string;     // 新增：YouTube 或其他影片連結
-  chartUrl?: string;     // 新增：應援圖卡圖片連結
-  musicUrl?: string;     // 新增：背景試聽音樂連結
-  isChallenge: boolean;  // 新增：是否納入應援挑戰題目
+  videoUrl?: string;     // 官方 MV/練習影片
+  phoneticUrl?: string;  // 新增：空耳/歌詞輔助影片連結
+  chartUrl?: string;     // 應援圖卡圖片連結
+  musicUrl?: string;     // 背景試聽音樂連結
+  isChallenge: boolean;  // 是否納入應援挑戰題目
 }
 
 export interface GameState {
@@ -22,7 +23,7 @@ export interface GameState {
   memoryBeaten: boolean;
   messageSent: boolean;
   userName: string;
-  memberId: string; // 新增：專屬編號
+  memberId: string;
 }
 
 export interface Message {
