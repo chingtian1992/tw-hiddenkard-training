@@ -103,8 +103,7 @@ const FanchantGame: React.FC<FanchantGameProps> = ({ completedSongs, onComplete 
       {selectedSongId && currentSong && !completedSongs.includes(selectedSongId) && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-6 backdrop-blur-sm">
           <div className="bg-[#1a1a1a] border-2 border-[#ff0033] rounded-3xl p-6 w-full max-w-md shadow-[0_0_30px_rgba(255,0,51,0.3)]">
-            <h3 className="text-xl font-bold text-white mb-2">{currentSong.title}</h3>
-            <p className="text-gray-400 text-sm mb-4"></p>
+            <h3 className="text-xl font-bold text-white mb-6">{currentSong.title}</h3>
             
             <div className="bg-black/50 p-4 rounded-xl mb-6 flex flex-col items-center border border-white/5">
               <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-2 ${showResult ? 'bg-gray-800' : 'bg-[#ff0033] animate-pulse shadow-[0_0_20px_rgba(255,0,51,0.5)]'}`}>
