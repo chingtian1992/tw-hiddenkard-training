@@ -22,6 +22,8 @@ export const SONGS: Song[] = [
     correctAnswer: 0, isChallenge: true,
     imageUrl: 'https://m.media-amazon.com/images/I/61tewdt1daL._UXNaN_FMjpg_QL85_.jpg',
     videoUrl: 'https://youtu.be/yPTcKSVAEvA?si=j112PL4A46u0HjEy',
+    musicUrl: '',
+    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
     chartUrl: 'https://i.imgur.com',
   },
   {
@@ -42,6 +44,9 @@ export const SONGS: Song[] = [
     correctAnswer: 1, isChallenge: true,
     imageUrl: 'https://upload.wikimedia.org/wikipedia/zh/7/7d/KARD_-_Hola_Hola_%28EP%29.png',
     videoUrl: 'https://youtu.be/USx4WyrkfU4?si=3gatR7i-ok1U1Ozp',
+    musicUrl: '',
+    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    chartUrl: 'https://i.imgur.com',
   },
   {
     id: 13, title: 'You In Me', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
@@ -49,6 +54,9 @@ export const SONGS: Song[] = [
     correctAnswer: 2, isChallenge: true,
     imageUrl: 'https://i.kfs.io/album/global/30370735,0v1/fit/500x500.jpg',
     videoUrl: 'https://youtu.be/tz23WFb8HM0?si=LjYlAL4D5aaFvSPL',
+    musicUrl: 'https://github.com/chingtian1992/exam-audio/blob/main/kard-you-in-me-cut.mp3$0',
+    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    chartUrl: 'https://i.imgur.com',
   },
   {
     id: 101, title: 'Ride on the wind', artist: 'KARD', member: 'BM', suit: 'spades',
@@ -56,6 +64,9 @@ export const SONGS: Song[] = [
     correctAnswer: 0, isChallenge: true,
     imageUrl: 'https://m.media-amazon.com/images/I/51jPe9NEdbL._AC_UF894,1000_QL80_.jpg',
     videoUrl: 'https://youtu.be/6AZ3BAydZqI?si=1cYLav8ESm90mpKW',
+    musicUrl: 'https://github.com/chingtian1992/exam-audio/blob/main/ride-on-the-wind_cut.mp3$0',
+    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    chartUrl: 'https://i.imgur.com',
   },
   {
     id: 4, title: 'Bomb Bomb', artist: 'KARD', member: 'Jiwoo', suit: 'diamonds',
@@ -63,13 +74,18 @@ export const SONGS: Song[] = [
     correctAnswer: 1, isChallenge: true,
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBhPyhfas7KgGer_GvgA_indBCGcJaDqJKmw&s$0/400/600',
     videoUrl: 'https://youtu.be/TW8zWq-bWAU?si=4-IE2-dIDPocpnN2',
+    musicUrl: '',
+    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    chartUrl: 'https://i.imgur.com',
   },
   {
     id: 5, title: 'Dumb Litty', artist: 'KARD', member: 'BM', suit: 'spades',
     question: '開頭 BM 的 Rap 部分應援是要喊什麼？', options: ['Get It!', 'Litty!', 'Dumb!', 'Oh Yeah!'],
     correctAnswer: 0, isChallenge: true,
     imageUrl: 'https://upload.wikimedia.org/wikipedia/en/0/01/KARD%27s_Dumb_Litty_2nd_Digital_Single_Cover.jpg',
-    videoUrl: 'https://youtu.be/W01_e6hw288?si=l0YEeB3sh6TOTZ9s',
+    videoUrl: 'https://youtu.be/W01_e6hw288?si=l0YEeB3sh6TOTZ9s',musicUrl: '',
+    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    chartUrl: 'https://i.imgur.com',
   },
   {
     id: 6, title: 'RED MOON', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
@@ -77,6 +93,9 @@ export const SONGS: Song[] = [
     correctAnswer: 2, isChallenge: true,
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTNYI1tHuWR9hurWHD9_rPS5ue0ceW5P0L1Q&s',
     videoUrl: 'https://youtu.be/aAmKkZo9A7M?si=XnuH49txDyXMe-gG',
+    musicUrl: 'https://github.com/chingtian1992/exam-audio/blob/main/kard-red-moon_cut.mp3$0',
+    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    chartUrl: 'https://i.imgur.com',
   },
   {
     id: 7, title: 'GUNSHOT', artist: 'KARD', member: 'Somin', suit: 'hearts',
@@ -84,6 +103,9 @@ export const SONGS: Song[] = [
     correctAnswer: 3, isChallenge: true,
     imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731fa689610fdceeb2060840ef',
     videoUrl: 'https://youtu.be/eD0peafO7Pw?si=7tDOeDmyn5HcvQdJ',
+    musicUrl: '',
+    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    chartUrl: 'https://i.imgur.com',
   },
   {
     id: 8, title: 'Ring The Alarm', artist: 'KARD', member: 'Jiwoo', suit: 'diamonds',
@@ -91,6 +113,9 @@ export const SONGS: Song[] = [
     correctAnswer: 2, isChallenge: true,
     imageUrl: 'https://i.scdn.co/image/ab67616d0000b27394485b7db792dd0512adf258',
     videoUrl: 'https://youtu.be/Zo0zu0lgzIk?si=gaYgMjaI0qWfqi1e',
+    musicUrl: '',
+    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    chartUrl: 'https://i.imgur.com',
   },
   {
     id: 9, title: 'ICKY', artist: 'KARD', member: 'BM', suit: 'spades',
@@ -98,6 +123,9 @@ export const SONGS: Song[] = [
     correctAnswer: 0, isChallenge: true,
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgAd_AVO1uGwvmygaWRjrE-ZBz-hpiezMmcA&s',
     videoUrl: 'https://youtu.be/L-i-_XSIgWQ?si=PRydR9988eER7pxB',
+    musicUrl: '',
+    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    chartUrl: 'https://i.imgur.com',
   },
   {
     id: 10, title: 'Cake', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
@@ -113,6 +141,7 @@ export const SONGS: Song[] = [
     videoUrl: 'https://youtu.be/7UciiiKGGYA?si=83m-L172_YV1GzbP',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/Tell My Momma cut.mp3',
     phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    chartUrl: 'https://i.imgur.com',
   },
   {
     id: 12, title: 'Touch', artist: 'KARD', member: 'Somin', suit: 'hearts',
@@ -120,6 +149,9 @@ export const SONGS: Song[] = [
     correctAnswer: 1, isChallenge: true,
     imageUrl: 'https://i.scdn.co/image/ab67616d0000b27311743685504d9a75ffeabf36',
     videoUrl: 'https://youtu.be/i3gaErmAQCk?si=mVYygDYPQem4k65p',
+    musicUrl: '',
+    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    chartUrl: 'https://i.imgur.com',
   },
   {
     id: 103, title: 'Before We Go', artist: 'KARD', member: 'Somin', suit: 'hearts',
