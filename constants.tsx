@@ -54,7 +54,7 @@ export const SONGS: Song[] = [
     correctAnswer: 2, isChallenge: true,
     imageUrl: 'https://i.kfs.io/album/global/30370735,0v1/fit/500x500.jpg',
     videoUrl: 'https://youtu.be/tz23WFb8HM0?si=LjYlAL4D5aaFvSPL',
-    musicUrl: 'https://github.com/chingtian1992/exam-audio/kard-you-in-me-cut.mp3$0',
+    musicUrl: 'https://github.com/chingtian1992/exam-audio/kard-you-in-me-cut.mp3',
     phoneticUrl: '', // 預留位置，等之後放上 TY 連結
     chartUrl: 'https://i.imgur.com',
   },
@@ -64,7 +64,7 @@ export const SONGS: Song[] = [
     correctAnswer: 0, isChallenge: true,
     imageUrl: 'https://m.media-amazon.com/images/I/51jPe9NEdbL._AC_UF894,1000_QL80_.jpg',
     videoUrl: 'https://youtu.be/6AZ3BAydZqI?si=1cYLav8ESm90mpKW',
-    musicUrl: 'https://github.com/chingtian1992/exam-audio/ride-on-the-wind_cut.mp3$0',
+    musicUrl: 'https://github.com/chingtian1992/exam-audio/ride-on-the-wind_cut.mp3',
     phoneticUrl: '', // 預留位置，等之後放上 TY 連結
     chartUrl: 'https://i.imgur.com',
   },
@@ -83,7 +83,8 @@ export const SONGS: Song[] = [
     question: '開頭 BM 的 Rap 部分應援是要喊什麼？', options: ['Get It!', 'Litty!', 'Dumb!', 'Oh Yeah!'],
     correctAnswer: 0, isChallenge: true,
     imageUrl: 'https://upload.wikimedia.org/wikipedia/en/0/01/KARD%27s_Dumb_Litty_2nd_Digital_Single_Cover.jpg',
-    videoUrl: 'https://youtu.be/W01_e6hw288?si=l0YEeB3sh6TOTZ9s',musicUrl: '',
+    videoUrl: 'https://youtu.be/W01_e6hw288?si=l0YEeB3sh6TOTZ9s',
+    musicUrl: '',
     phoneticUrl: '', // 預留位置，等之後放上 TY 連結
     chartUrl: 'https://i.imgur.com',
   },
@@ -93,7 +94,7 @@ export const SONGS: Song[] = [
     correctAnswer: 2, isChallenge: true,
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTNYI1tHuWR9hurWHD9_rPS5ue0ceW5P0L1Q&s',
     videoUrl: 'https://youtu.be/aAmKkZo9A7M?si=XnuH49txDyXMe-gG',
-    musicUrl: 'https://github.com/chingtian1992/exam-audio/kard-red-moon_cut.mp3$0',
+    musicUrl: 'https://github.com/chingtian1992/exam-audio/kard-red-moon_cut.mp3',
     phoneticUrl: '', // 預留位置，等之後放上 TY 連結
     chartUrl: 'https://i.imgur.com',
   },
