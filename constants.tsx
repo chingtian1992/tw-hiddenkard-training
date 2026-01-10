@@ -23,7 +23,7 @@ export const SONGS: Song[] = [
     imageUrl: 'https://m.media-amazon.com/images/I/61tewdt1daL._UXNaN_FMjpg_QL85_.jpg',
     videoUrl: 'https://youtu.be/yPTcKSVAEvA?si=j112PL4A46u0HjEy',
     musicUrl: '',
-    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    phoneticUrl: '',
     chartUrl: 'https://i.imgur.com',
   },
   {
@@ -45,7 +45,7 @@ export const SONGS: Song[] = [
     imageUrl: 'https://upload.wikimedia.org/wikipedia/zh/7/7d/KARD_-_Hola_Hola_%28EP%29.png',
     videoUrl: 'https://youtu.be/USx4WyrkfU4?si=3gatR7i-ok1U1Ozp',
     musicUrl: '',
-    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    phoneticUrl: '',
     chartUrl: 'https://i.imgur.com',
   },
   {
@@ -55,7 +55,7 @@ export const SONGS: Song[] = [
     imageUrl: 'https://i.kfs.io/album/global/30370735,0v1/fit/500x500.jpg',
     videoUrl: 'https://youtu.be/tz23WFb8HM0?si=LjYlAL4D5aaFvSPL',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-you-in-me-cut.mp3',
-    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    phoneticUrl: '',
     chartUrl: 'https://i.imgur.com',
   },
   {
@@ -65,7 +65,7 @@ export const SONGS: Song[] = [
     imageUrl: 'https://m.media-amazon.com/images/I/51jPe9NEdbL._AC_UF894,1000_QL80_.jpg',
     videoUrl: 'https://youtu.be/6AZ3BAydZqI?si=1cYLav8ESm90mpKW',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/ride-on-the-wind_cut.mp3',
-    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    phoneticUrl: '',
     chartUrl: 'https://i.imgur.com',
   },
   {
@@ -75,7 +75,7 @@ export const SONGS: Song[] = [
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBhPyhfas7KgGer_GvgA_indBCGcJaDqJKmw&s$0/400/600',
     videoUrl: 'https://youtu.be/TW8zWq-bWAU?si=4-IE2-dIDPocpnN2',
     musicUrl: '',
-    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    phoneticUrl: '',
     chartUrl: 'https://i.imgur.com',
   },
   {
@@ -85,7 +85,7 @@ export const SONGS: Song[] = [
     imageUrl: 'https://upload.wikimedia.org/wikipedia/en/0/01/KARD%27s_Dumb_Litty_2nd_Digital_Single_Cover.jpg',
     videoUrl: 'https://youtu.be/W01_e6hw288?si=l0YEeB3sh6TOTZ9s',
     musicUrl: '',
-    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    phoneticUrl: '',
     chartUrl: 'https://i.imgur.com',
   },
   {
@@ -95,37 +95,37 @@ export const SONGS: Song[] = [
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTNYI1tHuWR9hurWHD9_rPS5ue0ceW5P0L1Q&s',
     videoUrl: 'https://youtu.be/aAmKkZo9A7M?si=XnuH49txDyXMe-gG',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-red-moon_cut.mp3',
-    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    phoneticUrl: '',
     chartUrl: 'https://i.imgur.com',
   },
   {
     id: 7, title: 'GUNSHOT', artist: 'KARD', member: 'Somin', suit: 'hearts',
-    question: '歌曲前奏時要喊？', options: ['尖叫', '김매紋!김태형!전소민!전지우!', '내마음을!저격한!K.A.R.D（把我的心狙擊的KARD)', '以上皆是'],
+    question: '歌曲前奏時要喊？', options: ['尖叫', '김매튜!김태형!전소민!전지우!', '내마음을!저격한!K.A.R.D（把我的心狙擊的KARD)', '以上皆是'],
     correctAnswer: 3, isChallenge: true,
     imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731fa689610fdceeb2060840ef',
     videoUrl: 'https://youtu.be/eD0peafO7Pw?si=7tDOeDmyn5HcvQdJ',
-    musicUrl: '',
-    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-gunshot_cut.mp3',
+    phoneticUrl: '',
     chartUrl: 'https://i.imgur.com',
   },
   {
     id: 8, title: 'Ring The Alarm', artist: 'KARD', member: 'Jiwoo', suit: 'diamonds',
-    question: '開頭的鈴響起時，要喊什麼？', options: ['Wake up!', 'Ring it!', '매紋!태형!소민!지우!K.A.R.D!', 'Now!'],
+    question: '在這開頭的鈴響起後，要喊什麼？', options: ['Wake up!', 'Ring it!', '매튜!태형!소민!지우!K.A.R.D!', 'Now!'],
     correctAnswer: 2, isChallenge: true,
     imageUrl: 'https://i.scdn.co/image/ab67616d0000b27394485b7db792dd0512adf258',
     videoUrl: 'https://youtu.be/Zo0zu0lgzIk?si=gaYgMjaI0qWfqi1e',
-    musicUrl: '',
-    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-ring-the-alarm_cut.mp3',
+    phoneticUrl: '',
     chartUrl: 'https://i.imgur.com',
   },
   {
     id: 9, title: 'ICKY', artist: 'KARD', member: 'BM', suit: 'spades',
-    question: '副歌黏膩感十足的應援詞是？', options: ['ICKY ICKY ICKY!(ay ay ay)', 'Sticky!', 'Ooh!', 'Yeah!'],
+    question: '黏膩感十足的應援詞是？', options: ['ICKY ICKY ICKY!(ay ay ay)', 'Sticky!', 'Ooh!', 'Yeah!'],
     correctAnswer: 0, isChallenge: true,
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgAd_AVO1uGwvmygaWRjrE-ZBz-hpiezMmcA&s',
     videoUrl: 'https://youtu.be/L-i-_XSIgWQ?si=PRydR9988eER7pxB',
-    musicUrl: '',
-    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-icky-cut.mp3',
+    phoneticUrl: '',
     chartUrl: 'https://i.imgur.com',
   },
   {
@@ -141,17 +141,18 @@ export const SONGS: Song[] = [
     imageUrl: 'https://i.scdn.co/image/ab67616d0000b273735a45653bf69f7f50843a44',
     videoUrl: 'https://youtu.be/7UciiiKGGYA?si=83m-L172_YV1GzbP',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/Tell My Momma cut.mp3',
-    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    phoneticUrl: '',
     chartUrl: 'https://i.imgur.com',
   },
   {
     id: 12, title: 'Touch', artist: 'KARD', member: 'Somin', suit: 'hearts',
-    question: '副歌需要一起唱的部分？', options: ['One', 'One touch One touch', 'oh, na-na-na-na', '無應援'],
-    correctAnswer: 1, isChallenge: true,
+    question: '在洗腦的「Da-da-da-da」旋律空隙中，需要依序喊出的應援詞是？', 
+    options: ['you need that / Touch', 'K.A.R.D / Touch', 'Oh NaNa / Touch', 'One touch / Touch'],
+    correctAnswer: 0, isChallenge: true,
     imageUrl: 'https://i.scdn.co/image/ab67616d0000b27311743685504d9a75ffeabf36',
     videoUrl: 'https://youtu.be/i3gaErmAQCk?si=mVYygDYPQem4k65p',
-    musicUrl: '',
-    phoneticUrl: '', // 預留位置，等之後放上 TY 連結
+    musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-touch-cut.mp3',
+    phoneticUrl: '',
     chartUrl: 'https://i.imgur.com',
   },
   {
