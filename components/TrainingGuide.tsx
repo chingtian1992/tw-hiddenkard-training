@@ -6,13 +6,13 @@ const TrainingGuide: React.FC = () => {
     if (url && url !== '') {
       window.open(url, '_blank', 'noopener,noreferrer');
     } else {
-      alert(`${type}資源準備中，敬請期待！`);
+      alert(`${type}準備中，敬請期待！`);
     }
   };
 
   const handleChartClick = (isChallenge: boolean, url?: string) => {
     if (!isChallenge) {
-      alert("這首目前沒有應援口號，請盡情享受 KARD 的音樂與舞台！");
+      alert("這首目前沒有應援，請盡情享受 KARD 的音樂與舞台！");
       return;
     }
     
