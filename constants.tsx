@@ -18,11 +18,11 @@ export const MEMBER_INFO: Record<Suit, { name: string; symbol: string; desc: str
 export const SONGS: Song[] = [
   {
     id: 1, title: 'Oh NaNa', artist: 'KARD', member: 'BM', suit: 'spades',
-    question: '副歌開始時的第一個應援動作是？', options: ['大聲喊 Oh NaNa', '拍手兩次', '喊 BM 名字', '安靜看表演'],
+    question: '這首歌曲的最重要的應援詞是？', options: ['大聲喊 Oh NaNa', '拍手兩次', '喊成員名字', '安靜看表演'],
     correctAnswer: 0, isChallenge: true,
     imageUrl: 'https://m.media-amazon.com/images/I/61tewdt1daL._UXNaN_FMjpg_QL85_.jpg',
     videoUrl: 'https://youtu.be/yPTcKSVAEvA?si=j112PL4A46u0HjEy',
-    musicUrl: '',
+    musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-oh-nana_cut.mp3',
     phoneticUrl: '',
     chartUrl: 'https://i.imgur.com',
   },
@@ -40,11 +40,11 @@ export const SONGS: Song[] = [
   },
   {
     id: 3, title: 'Hola Hola', artist: 'KARD', member: 'Somin', suit: 'hearts',
-    question: '副歌 "Hola Hola" 出現時要喊幾次？', options: ['1次', '2次', '3次', '4次'],
+    question: '這個段落中，會要喊出的應援詞是什麼？', options: ['buming up/Hola Hola', 'L.U.V/Hola Hola/Hola Hola', 'L.U.V/Hola Hola/KARD', '全部跟著唱'],
     correctAnswer: 1, isChallenge: true,
     imageUrl: 'https://upload.wikimedia.org/wikipedia/zh/7/7d/KARD_-_Hola_Hola_%28EP%29.png',
     videoUrl: 'https://youtu.be/USx4WyrkfU4?si=3gatR7i-ok1U1Ozp',
-    musicUrl: '',
+    musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-hola-hola_cut.mp3',
     phoneticUrl: '',
     chartUrl: 'https://i.imgur.com',
   },
