@@ -87,8 +87,9 @@ const TrainingGuide: React.FC = () => {
         <p className="text-[10px] text-gray-400 leading-relaxed italic font-medium">
           💡 練習小撇步：<br/>
           推薦先點擊 <span className="text-white font-bold">「空耳」</span> 熟悉發音，<br/>
-          再看 <span className="text-white font-bold">「官方」</span> 配合動作，<br/>
-          最後挑戰應援集牌換好禮！
+          搭配 <span className="text-white font-bold">「圖卡」</span> 隨時複習，<br/>
+          再看 <span className="text-white font-bold">「官方」</span> 配合歌曲練習，<br/>
+          最後挑戰應援集牌，兌換應援小禮物！
         </p>
       </div>
     </div>
