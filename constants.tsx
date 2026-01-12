@@ -56,7 +56,7 @@ export const SONGS: Song[] = [
     videoUrl: 'https://youtu.be/tz23WFb8HM0?si=LjYlAL4D5aaFvSPL',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-you-in-me-cut.mp3',
     phoneticUrl: '',
-    chartUrl: 'https://i.imgur.com',
+    chartUrl: 'https://chingtian1992.github.io/exam-audio/You in me.png',
   },
   {
     id: 101, title: 'Ride on the wind', artist: 'KARD', member: 'BM', suit: 'spades',
