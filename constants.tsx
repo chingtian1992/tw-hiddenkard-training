@@ -46,7 +46,7 @@ export const SONGS: Song[] = [
     videoUrl: 'https://youtu.be/USx4WyrkfU4?si=3gatR7i-ok1U1Ozp',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-hola-hola_cut.mp3',
     phoneticUrl: '',
-    chartUrl: 'https://i.imgur.com',
+    chartUrl: 'https://chingtian1992.github.io/exam-audio/hola hola.png',
   },
   {
     id: 13, title: 'You In Me', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
