@@ -24,7 +24,7 @@ export const SONGS: Song[] = [
     videoUrl: 'https://youtu.be/yPTcKSVAEvA?si=j112PL4A46u0HjEy',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-oh-nana_cut.mp3',
     phoneticUrl: '',
-    chartUrl: 'https://i.imgur.com',
+    chartUrl: 'https://chingtian1992.github.io/exam-audio/Oh NaNa.png',
   },
   {
     id: 2, title: 'Don\'t Recall', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
@@ -66,7 +66,7 @@ export const SONGS: Song[] = [
     videoUrl: 'https://youtu.be/6AZ3BAydZqI?si=1cYLav8ESm90mpKW',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/ride-on-the-wind_cut.mp3',
     phoneticUrl: '',
-    chartUrl: 'https://i.imgur.com',
+    chartUrl: 'https://chingtian1992.github.io/exam-audio/Ride on the wind.png',
   },
   {
     id: 4, title: 'Bomb Bomb', artist: 'KARD', member: 'Jiwoo', suit: 'diamonds',
@@ -76,7 +76,7 @@ export const SONGS: Song[] = [
     videoUrl: 'https://youtu.be/TW8zWq-bWAU?si=4-IE2-dIDPocpnN2',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-bomb-bomb_cut.mp3',
     phoneticUrl: '',
-    chartUrl: 'https://i.imgur.com',
+    chartUrl: 'https://chingtian1992.github.io/exam-audio/Bomb Bomb.png',
   },
   {
     id: 5, title: 'Dumb Litty', artist: 'KARD', member: 'BM', suit: 'spades',
@@ -86,7 +86,7 @@ export const SONGS: Song[] = [
     videoUrl: 'https://youtu.be/W01_e6hw288?si=l0YEeB3sh6TOTZ9s',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-dumb-litty-cut.mp3',
     phoneticUrl: '',
-    chartUrl: 'https://i.imgur.com',
+    chartUrl: 'https://chingtian1992.github.io/exam-audio/Dumb Litty.png',
   },
   {
     id: 6, title: 'RED MOON', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
@@ -96,7 +96,7 @@ export const SONGS: Song[] = [
     videoUrl: 'https://youtu.be/aAmKkZo9A7M?si=XnuH49txDyXMe-gG',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-red-moon_cut.mp3',
     phoneticUrl: '',
-    chartUrl: 'https://i.imgur.com',
+    chartUrl: 'https://chingtian1992.github.io/exam-audio/RED MOON.png',
   },
   {
     id: 7, title: 'GUNSHOT', artist: 'KARD', member: 'Somin', suit: 'hearts',
@@ -106,7 +106,7 @@ export const SONGS: Song[] = [
     videoUrl: 'https://youtu.be/eD0peafO7Pw?si=7tDOeDmyn5HcvQdJ',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-gunshot_cut.mp3',
     phoneticUrl: '',
-    chartUrl: 'https://i.imgur.com',
+    chartUrl: 'https://chingtian1992.github.io/exam-audio/GUNSHOT.png',
   },
   {
     id: 8, title: 'Ring The Alarm', artist: 'KARD', member: 'Jiwoo', suit: 'diamonds',
@@ -116,7 +116,7 @@ export const SONGS: Song[] = [
     videoUrl: 'https://youtu.be/Zo0zu0lgzIk?si=gaYgMjaI0qWfqi1e',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-ring-the-alarm_cut.mp3',
     phoneticUrl: '',
-    chartUrl: 'https://i.imgur.com',
+    chartUrl: 'https://chingtian1992.github.io/exam-audio/Ring The Alarm.png',
   },
   {
     id: 9, title: 'ICKY', artist: 'KARD', member: 'BM', suit: 'spades',
@@ -126,7 +126,7 @@ export const SONGS: Song[] = [
     videoUrl: 'https://youtu.be/L-i-_XSIgWQ?si=PRydR9988eER7pxB',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-icky-cut.mp3',
     phoneticUrl: '',
-    chartUrl: 'https://i.imgur.com',
+    chartUrl: 'https://chingtian1992.github.io/exam-audio/ICKY.png',
   },
   {
     id: 10, title: 'Cake', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
@@ -142,7 +142,7 @@ export const SONGS: Song[] = [
     videoUrl: 'https://youtu.be/7UciiiKGGYA?si=83m-L172_YV1GzbP',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/Tell My Momma cut.mp3',
     phoneticUrl: '',
-    chartUrl: 'https://i.imgur.com',
+    chartUrl: 'https://chingtian1992.github.io/exam-audio/Tell My Momma.png',
   },
   {
     id: 12, title: 'Touch', artist: 'KARD', member: 'Somin', suit: 'hearts',
@@ -153,7 +153,7 @@ export const SONGS: Song[] = [
     videoUrl: 'https://youtu.be/i3gaErmAQCk?si=mVYygDYPQem4k65p',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-touch-cut.mp3',
     phoneticUrl: '',
-    chartUrl: 'https://i.imgur.com',
+    chartUrl: 'https://chingtian1992.github.io/exam-audio/Touch.png',
   },
   {
     id: 103, title: 'Before We Go', artist: 'KARD', member: 'Somin', suit: 'hearts',
