@@ -96,7 +96,7 @@ export const SONGS: Song[] = [
     videoUrl: 'https://youtu.be/aAmKkZo9A7M?si=XnuH49txDyXMe-gG',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-red-moon_cut.mp3',
     phoneticUrl: '',
-    chartUrl: 'https://chingtian1992.github.io/exam-audio/RED MOON.png',
+    chartUrl: 'https://chingtian1992.github.io/exam-audio/Red Moon.png',
   },
   {
     id: 7, title: 'GUNSHOT', artist: 'KARD', member: 'Somin', suit: 'hearts',
