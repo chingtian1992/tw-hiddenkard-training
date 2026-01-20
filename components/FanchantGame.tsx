@@ -11,6 +11,7 @@ const FanchantGame: React.FC<FanchantGameProps> = ({ completedSongs, onComplete 
   const [selectedSongId, setSelectedSongId] = useState<number | null>(null);
   const [showResult, setShowResult] = useState<boolean>(false);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+  const [isAudioPlaying, setIsAudioPlaying] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const challengeSongs = SONGS.filter(s => s.isChallenge);
@@ -26,14 +27,21 @@ const FanchantGame: React.FC<FanchantGameProps> = ({ completedSongs, onComplete 
       }
       
       const audio = new Audio(currentSong.musicUrl);
-      audio.loop = false; // 應援測試通常播放一次即可
+      audio.loop = false;
+      
+      audio.onplay = () => setIsAudioPlaying(true);
+      audio.onpause = () => setIsAudioPlaying(false);
+      audio.onended = () => setIsAudioPlaying(false);
+      
       audioRef.current = audio;
       
-      // 嘗試播放 (瀏覽器可能需要使用者互動才能自動播放，但在點擊卡片後通常可執行)
-      audio.play().catch(err => console.log('音訊自動播放受阻:', err));
+      // 嘗試播放
+      audio.play().catch(err => {
+        console.log('音訊自動播放受阻:', err);
+        setIsAudioPlaying(false);
+      });
     }
 
-    // 清理函數：當彈窗關閉或組件卸載時停止音樂
     return () => {
       if (audioRef.current) {
         audioRef.current.pause();
@@ -49,15 +57,20 @@ const FanchantGame: React.FC<FanchantGameProps> = ({ completedSongs, onComplete 
     setIsCorrect(null);
   };
 
+  const handleReplay = () => {
+    if (audioRef.current && !showResult) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play().catch(err => console.log('重播失敗:', err));
+    }
+  };
+
   const handleAnswer = (index: number) => {
     if (!currentSong) return;
     const correct = index === currentSong.correctAnswer;
     setIsCorrect(correct);
     setShowResult(true);
 
-    // 答題後淡出或停止音樂
     if (audioRef.current) {
-      // 簡單起見直接停止，也可以做音量漸減
       audioRef.current.pause();
     }
 
@@ -103,28 +116,45 @@ const FanchantGame: React.FC<FanchantGameProps> = ({ completedSongs, onComplete 
       {selectedSongId && currentSong && !completedSongs.includes(selectedSongId) && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-6 backdrop-blur-sm">
           <div className="bg-[#1a1a1a] border-2 border-[#ff0033] rounded-3xl p-6 w-full max-w-md shadow-[0_0_30px_rgba(255,0,51,0.3)]">
-            <h3 className="text-xl font-bold text-white mb-6">{currentSong.title}</h3>
+            <h3 className="text-xl font-bold text-white mb-6 text-center">{currentSong.title}</h3>
             
-            <div className="bg-black/50 p-4 rounded-xl mb-6 flex flex-col items-center border border-white/5">
-              <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-2 ${showResult ? 'bg-gray-800' : 'bg-[#ff0033] animate-pulse shadow-[0_0_20px_rgba(255,0,51,0.5)]'}`}>
+            <div className="bg-black/50 p-6 rounded-xl mb-6 flex flex-col items-center border border-white/5">
+              <button 
+                onClick={handleReplay}
+                disabled={showResult}
+                className={`w-20 h-20 rounded-full flex items-center justify-center mb-3 transition-all ${
+                  showResult 
+                    ? 'bg-gray-800' 
+                    : isAudioPlaying 
+                      ? 'bg-[#ff0033] animate-pulse shadow-[0_0_25px_rgba(255,0,51,0.6)] scale-110' 
+                      : 'bg-[#ff0033]/20 border-2 border-[#ff0033] hover:bg-[#ff0033]/40'
+                }`}
+              >
                 {showResult ? (
                   isCorrect ? (
-                    <span className="text-3xl text-green-500">✓</span>
+                    <span className="text-4xl text-green-500">✓</span>
                   ) : (
-                    <span className="text-3xl text-red-500">✗</span>
+                    <span className="text-4xl text-red-500">✗</span>
                   )
-                ) : (
-                  <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                ) : isAudioPlaying ? (
+                  <svg className="w-10 h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                   </svg>
+                ) : (
+                  <div className="flex flex-col items-center">
+                    <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                    <span className="text-[8px] text-white font-black mt-1 uppercase tracking-tighter">REPLAY</span>
+                  </div>
                 )}
-              </div>
-              <span className="text-xs text-gray-300">
-                {currentSong.musicUrl ? (showResult ? '判定中...' : '音樂播放中，請仔細聆聽...') : '應援題目考驗中...'}
+              </button>
+              <span className="text-xs text-gray-400 font-medium">
+                {showResult ? '判定完成' : isAudioPlaying ? '聆聽旋律中...' : '播放結束，點擊圖示可重播'}
               </span>
             </div>
 
-            <p className="text-white mb-4 text-center font-bold px-2">{currentSong.question}</p>
+            <p className="text-white mb-6 text-center font-bold px-2 leading-relaxed">{currentSong.question}</p>
             
             <div className="space-y-3">
               {currentSong.options.map((opt, idx) => (
@@ -132,12 +162,12 @@ const FanchantGame: React.FC<FanchantGameProps> = ({ completedSongs, onComplete 
                   key={idx}
                   disabled={showResult}
                   onClick={() => handleAnswer(idx)}
-                  className={`w-full py-3 px-4 rounded-xl border text-sm font-medium transition-all duration-300 ${
+                  className={`w-full py-4 px-4 rounded-xl border text-sm font-bold transition-all duration-300 ${
                     showResult && idx === currentSong.correctAnswer 
-                      ? 'bg-green-600 border-green-400 text-white' 
+                      ? 'bg-green-600 border-green-400 text-white translate-x-1' 
                       : showResult && idx !== currentSong.correctAnswer && isCorrect === false
-                      ? 'bg-red-900/50 border-red-500 text-red-100'
-                      : 'bg-[#0a0a0a] border-gray-700 text-gray-300 hover:border-[#d4af37] hover:text-white'
+                      ? 'bg-red-900/50 border-red-500 text-red-100 opacity-60'
+                      : 'bg-[#0a0a0a] border-gray-700 text-gray-300 hover:border-[#ff0033] hover:text-white active:bg-[#ff0033]/10'
                   }`}
                 >
                   {opt}
@@ -147,9 +177,9 @@ const FanchantGame: React.FC<FanchantGameProps> = ({ completedSongs, onComplete 
 
             <button 
               onClick={handleExit}
-              className="mt-6 w-full text-gray-500 text-xs font-bold uppercase tracking-widest hover:text-white transition-colors"
+              className="mt-8 w-full text-gray-600 text-[10px] font-black uppercase tracking-[0.2em] hover:text-white transition-colors py-2"
             >
-              暫時退出
+              — 暫時退出 —
             </button>
           </div>
         </div>
