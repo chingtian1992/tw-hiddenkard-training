@@ -56,7 +56,7 @@ export const SONGS: Song[] = [
     imageUrl: 'https://i.kfs.io/album/global/30370735,0v1/fit/500x500.jpg',
     videoUrl: 'https://youtu.be/tz23WFb8HM0?si=LjYlAL4D5aaFvSPL',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-you-in-me-cut.mp3',
-    phoneticUrl: '',
+    phoneticUrl: 'https://youtu.be/T7Tkdnf8ZUM?si=1npZNpRtPHJ4Izd6',
     chartUrl: 'https://chingtian1992.github.io/exam-audio/You in me.png',
   },
   {
