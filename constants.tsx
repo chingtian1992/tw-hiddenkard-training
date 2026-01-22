@@ -45,7 +45,7 @@ export const SONGS: Song[] = [
     imageUrl: 'https://upload.wikimedia.org/wikipedia/zh/7/7d/KARD_-_Hola_Hola_%28EP%29.png',
     videoUrl: 'https://youtu.be/USx4WyrkfU4?si=3gatR7i-ok1U1Ozp',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-hola-hola_cut.mp3',
-    phoneticUrl: '',
+    phoneticUrl: 'https://youtu.be/nGAQCq2ZzNY?si=OPItAuGkN_XRrw4t',
     chartUrl: 'https://chingtian1992.github.io/exam-audio/hola hola.png',
   },
   {
