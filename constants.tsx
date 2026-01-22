@@ -25,6 +25,7 @@ export const SONGS: Song[] = [
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-oh-nana_cut.mp3',
     phoneticUrl: '',
     chartUrl: '',
+    description: '跟著一起唱Oh NaNa',
   },
   {
     id: 2, title: 'Don\'t Recall', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
@@ -43,7 +44,7 @@ export const SONGS: Song[] = [
     question: '這個段落中，會要喊出的應援詞是什麼？', options: ['buming up/Hola Hola', 'L.U.V/Hola Hola/Hola Hola', 'L.U.V/Hola Hola/KARD', '全部跟著唱'],
     correctAnswer: 1, isChallenge: true,
     imageUrl: 'https://upload.wikimedia.org/wikipedia/zh/7/7d/KARD_-_Hola_Hola_%28EP%29.png',
-    videoUrl: 'https://youtu.be/USx4WyrkfU4?si=3gatR7i-ok1U1Ozp',
+    videoUrl: 'https://youtu. de/USx4WyrkfU4?si=3gatR7i-ok1U1Ozp',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-hola-hola_cut.mp3',
     phoneticUrl: 'https://youtu.be/nGAQCq2ZzNY?si=OPItAuGkN_XRrw4t',
     chartUrl: 'https://chingtian1992.github.io/exam-audio/hola hola.png',
@@ -108,11 +109,12 @@ export const SONGS: Song[] = [
     phoneticUrl: '',
     chartUrl: 'https://chingtian1992.github.io/exam-audio/GUNSHOT.png',
   },
-    {
+  {
     id: 104, title: 'Hold On', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
     question: '', options: [], correctAnswer: 0, isChallenge: false,
     imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731fa689610fdceeb2060840ef',
     videoUrl: 'https://www.youtube.com/watch?v=xCrHivzhJp0',
+    description: '【台灣場限定應援】請大家大合唱時一起合唱。',
   },
   {
     id: 8, title: 'Ring The Alarm', artist: 'KARD', member: 'Jiwoo', suit: 'diamonds',
