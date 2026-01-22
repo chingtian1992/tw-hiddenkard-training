@@ -24,7 +24,7 @@ export const SONGS: Song[] = [
     videoUrl: 'https://youtu.be/yPTcKSVAEvA?si=j112PL4A46u0HjEy',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-oh-nana_cut.mp3',
     phoneticUrl: '',
-    chartUrl: 'https://chingtian1992.github.io/exam-audio/Oh NaNa.png',
+    chartUrl: '',
   },
   {
     id: 2, title: 'Don\'t Recall', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
@@ -107,6 +107,12 @@ export const SONGS: Song[] = [
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-gunshot_cut.mp3',
     phoneticUrl: '',
     chartUrl: 'https://chingtian1992.github.io/exam-audio/GUNSHOT.png',
+  },
+    {
+    id: 104, title: 'Hold On', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
+    question: '', options: [], correctAnswer: 0, isChallenge: false,
+    imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731fa689610fdceeb2060840ef',
+    videoUrl: 'https://www.youtube.com/watch?v=xCrHivzhJp0',
   },
   {
     id: 8, title: 'Ring The Alarm', artist: 'KARD', member: 'Jiwoo', suit: 'diamonds',
