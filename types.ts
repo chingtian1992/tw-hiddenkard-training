@@ -1,4 +1,3 @@
-
 export type Suit = 'spades' | 'clubs' | 'hearts' | 'diamonds' | 'hidden';
 
 export interface Song {
@@ -12,10 +11,11 @@ export interface Song {
   correctAnswer: number;
   imageUrl: string;      // 歌曲封面/背景圖
   videoUrl?: string;     // 官方 MV/練習影片
-  phoneticUrl?: string;  // 新增：空耳/歌詞輔助影片連結
+  phoneticUrl?: string;  // 空耳/歌詞輔助影片連結
   chartUrl?: string;     // 應援圖卡圖片連結
   musicUrl?: string;     // 背景試聽音樂連結
   isChallenge: boolean;  // 是否納入應援挑戰題目
+  description?: string;  // 特定歌曲的專屬說明文字
 }
 
 export interface GameState {
