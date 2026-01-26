@@ -66,7 +66,7 @@ export const SONGS: Song[] = [
     imageUrl: 'https://m.media-amazon.com/images/I/51jPe9NEdbL._AC_UF894,1000_QL80_.jpg',
     videoUrl: 'https://youtu.be/6AZ3BAydZqI?si=1cYLav8ESm90mpKW',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/ride-on-the-wind_cut.mp3',
-    phoneticUrl: '',
+    phoneticUrl: 'https://youtu.be/E_kWJxKK8no?si=ONsG8ugpwgmNDlSp',
     chartUrl: 'https://chingtian1992.github.io/exam-audio/Ride on the wind.png',
   },
   {
@@ -76,7 +76,7 @@ export const SONGS: Song[] = [
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBhPyhfas7KgGer_GvgA_indBCGcJaDqJKmw&s$0/400/600',
     videoUrl: 'https://youtu.be/TW8zWq-bWAU?si=4-IE2-dIDPocpnN2',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-bomb-bomb_cut.mp3',
-    phoneticUrl: '',
+    phoneticUrl: 'https://youtu.be/Ie7Mx77MaN0?si=9Afh1JJpO23Ao0RN',
     chartUrl: 'https://chingtian1992.github.io/exam-audio/Bomb Bomb.png',
   },
   {
@@ -86,7 +86,7 @@ export const SONGS: Song[] = [
     imageUrl: 'https://upload.wikimedia.org/wikipedia/en/0/01/KARD%27s_Dumb_Litty_2nd_Digital_Single_Cover.jpg',
     videoUrl: 'https://youtu.be/W01_e6hw288?si=l0YEeB3sh6TOTZ9s',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-dumb-litty-cut.mp3',
-    phoneticUrl: '',
+    phoneticUrl: 'https://youtu.be/t1QtUQYGHFM?si=CgL6brZZcI1M-ded',
     chartUrl: 'https://chingtian1992.github.io/exam-audio/Dumb Litty.png',
   },
   {
