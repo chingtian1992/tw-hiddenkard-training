@@ -96,7 +96,7 @@ export const SONGS: Song[] = [
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTNYI1tHuWR9hurWHD9_rPS5ue0ceW5P0L1Q&s',
     videoUrl: 'https://youtu.be/aAmKkZo9A7M?si=XnuH49txDyXMe-gG',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-red-moon_cut.mp3',
-    phoneticUrl: '',
+    phoneticUrl: 'https://youtu.be/n9QIpxCgJhQ?si=0FKYFxLytLZ6EQVv',
     chartUrl: 'https://chingtian1992.github.io/exam-audio/Red Moon.png',
   },
   {
@@ -106,7 +106,7 @@ export const SONGS: Song[] = [
     imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731fa689610fdceeb2060840ef',
     videoUrl: 'https://youtu.be/eD0peafO7Pw?si=7tDOeDmyn5HcvQdJ',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-gunshot_cut.mp3',
-    phoneticUrl: '',
+    phoneticUrl: 'https://youtu.be/huCS8tIih7c?si=sL1usz09cKW3BigA',
     chartUrl: 'https://chingtian1992.github.io/exam-audio/GUNSHOT.png',
   },
   {
@@ -123,7 +123,7 @@ export const SONGS: Song[] = [
     imageUrl: 'https://i.scdn.co/image/ab67616d0000b27394485b7db792dd0512adf258',
     videoUrl: 'https://youtu.be/Zo0zu0lgzIk?si=gaYgMjaI0qWfqi1e',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-ring-the-alarm_cut.mp3',
-    phoneticUrl: '',
+    phoneticUrl: 'https://youtu.be/2Bju5Xw5r54?si=gcQOsp8y__5idJB-',
     chartUrl: 'https://chingtian1992.github.io/exam-audio/Ring The Alarm.png',
   },
   {
@@ -133,7 +133,7 @@ export const SONGS: Song[] = [
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgAd_AVO1uGwvmygaWRjrE-ZBz-hpiezMmcA&s',
     videoUrl: 'https://youtu.be/L-i-_XSIgWQ?si=PRydR9988eER7pxB',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-icky-cut.mp3',
-    phoneticUrl: '',
+    phoneticUrl: 'https://youtu.be/JWhYtqejvAI?si=uxEpEKa-aESEbXbJ',
     chartUrl: 'https://chingtian1992.github.io/exam-audio/ICKY.png',
   },
   {
