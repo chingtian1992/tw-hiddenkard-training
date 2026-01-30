@@ -9,7 +9,7 @@ export const COLORS = {
 
 export const MEMBER_INFO: Record<Suit, { name: string; symbol: string; desc: string }> = {
   spades: { name: 'BM', symbol: '♠', desc: 'King - Power' },
-  clubs: { name: 'J.Seph', symbol: '♣', desc: 'Ace - Key' },
+  clubs: { name: 'J.seph', symbol: '♣', desc: 'Ace - Key' },
   hearts: { name: 'Somin', symbol: '♥', desc: 'Black Joker - Charm' },
   diamonds: { name: 'Jiwoo', symbol: '♦', desc: 'Color Joker - Unique' },
   hidden: { name: 'Hidden', symbol: '🃏', desc: 'Fan - The Hidden Card' },
@@ -28,13 +28,13 @@ export const SONGS: Song[] = [
     description: '跟著一起唱Oh NaNa',
   },
   {
-    id: 2, title: 'Don\'t Recall', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
+    id: 2, title: 'Don\'t Recall', artist: 'KARD', member: 'J.seph', suit: 'clubs',
     question: '', options: [], correctAnswer: 0, isChallenge: false,
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvFfb3D1T16n8_r2aPee6Xtr6boYu_ZBSuTw&s',
     videoUrl: 'https://youtu.be/41Dp7Q-SM1Y?si=9roXE_yXSRiCTGos',
   },
   {
-    id: 102, title: 'RUMOR', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
+    id: 102, title: 'RUMOR', artist: 'KARD', member: 'J.seph', suit: 'clubs',
     question: '', options: [], correctAnswer: 0, isChallenge: false,
     imageUrl: 'https://is1-ssl.mzstatic.com/image/thumb/Music127/v4/34/af/cc/34afcca4-914a-9880-4fec-74aa7d36a26d/cover-K.A.R.D_DS.jpg/1200x630bb.jpg',
     videoUrl: 'https://youtu.be/8LPjJ1p4dYs?si=gzmDoiDKgqsmNwCn',
@@ -50,7 +50,7 @@ export const SONGS: Song[] = [
     chartUrl: 'https://chingtian1992.github.io/exam-audio/hola hola.png',
   },
   {
-    id: 13, title: 'You In Me', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
+    id: 13, title: 'You In Me', artist: 'KARD', member: 'J.seph', suit: 'clubs',
     question: '這首歌曲的最後段落要依序喊出什麼？', options: ['L / O / V / E', 'D / S / P / ya', 'K / A / R / D', '0 / 7 / 1 / 9'],
     correctAnswer: 2, isChallenge: true,
     imageUrl: 'https://i.kfs.io/album/global/30370735,0v1/fit/500x500.jpg',
@@ -90,7 +90,7 @@ export const SONGS: Song[] = [
     chartUrl: 'https://chingtian1992.github.io/exam-audio/Dumb Litty.png',
   },
   {
-    id: 6, title: 'RED MOON', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
+    id: 6, title: 'RED MOON', artist: 'KARD', member: 'J.seph', suit: 'clubs',
     question: 'Oh run baby run Oh run baby run 這句歌詞後，要跟著？', options: ['原地跑步', '左右晃動', '大聲唱 On and on and on and on', '安靜看表演'],
     correctAnswer: 2, isChallenge: true,
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTNYI1tHuWR9hurWHD9_rPS5ue0ceW5P0L1Q&s',
@@ -110,7 +110,7 @@ export const SONGS: Song[] = [
     chartUrl: 'https://chingtian1992.github.io/exam-audio/GUNSHOT.png',
   },
   {
-    id: 104, title: 'Hold On', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
+    id: 104, title: 'Hold On', artist: 'KARD', member: 'J.seph', suit: 'clubs',
     question: '', options: [], correctAnswer: 0, isChallenge: false,
     imageUrl: 'https://i.scdn.co/image/ab67616d0000b2731fa689610fdceeb2060840ef',
     videoUrl: 'https://www.youtube.com/watch?v=xCrHivzhJp0',
@@ -137,7 +137,7 @@ export const SONGS: Song[] = [
     chartUrl: 'https://chingtian1992.github.io/exam-audio/ICKY.png',
   },
   {
-    id: 10, title: 'Cake', artist: 'KARD', member: 'J.Seph', suit: 'clubs',
+    id: 10, title: 'Cake', artist: 'KARD', member: 'J.seph', suit: 'clubs',
     question: '', options: [], correctAnswer: 0, isChallenge: false,
     imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgAd_AVO1uGwvmygaWRjrE-ZBz-hpiezMmcA&s',
     videoUrl: 'https://youtu.be/uho3n38lq7o?si=znaQITfupCti8hau',
