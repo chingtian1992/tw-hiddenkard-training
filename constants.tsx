@@ -149,7 +149,7 @@ export const SONGS: Song[] = [
     imageUrl: 'https://i.scdn.co/image/ab67616d0000b273735a45653bf69f7f50843a44',
     videoUrl: 'https://youtu.be/7UciiiKGGYA?si=83m-L172_YV1GzbP',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/Tell My Momma cut.mp3',
-    phoneticUrl: '',
+    phoneticUrl: 'https://youtu.be/g7O4WxNAzb8?si=0ebaocOwKR4Vq4MY',
     chartUrl: 'https://chingtian1992.github.io/exam-audio/Tell My Momma.png',
   },
   {
@@ -160,7 +160,7 @@ export const SONGS: Song[] = [
     imageUrl: 'https://i.scdn.co/image/ab67616d0000b27311743685504d9a75ffeabf36',
     videoUrl: 'https://youtu.be/i3gaErmAQCk?si=mVYygDYPQem4k65p',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-touch-cut.mp3',
-    phoneticUrl: '',
+    phoneticUrl: 'https://youtu.be/nn5HAiCpRKM?si=S8DHCoZMn7yXQtBj',
     chartUrl: 'https://chingtian1992.github.io/exam-audio/Touch.png',
   },
   {
