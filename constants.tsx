@@ -44,7 +44,7 @@ export const SONGS: Song[] = [
     question: '這個段落中，會要喊出的應援詞是什麼？', options: ['buming up/Hola Hola', 'L.U.V/Hola Hola/Hola Hola', 'L.U.V/Hola Hola/KARD', '全部跟著唱'],
     correctAnswer: 1, isChallenge: true,
     imageUrl: 'https://upload.wikimedia.org/wikipedia/zh/7/7d/KARD_-_Hola_Hola_%28EP%29.png',
-    videoUrl: 'https://youtu. de/USx4WyrkfU4?si=3gatR7i-ok1U1Ozp',
+    videoUrl: 'https://youtu.be/USx4WyrkfU4?si=fNdb6sF-TcV2sFxm',
     musicUrl: 'https://chingtian1992.github.io/exam-audio/kard-hola-hola_cut.mp3',
     phoneticUrl: 'https://youtu.be/nGAQCq2ZzNY?si=OPItAuGkN_XRrw4t',
     chartUrl: 'https://chingtian1992.github.io/exam-audio/hola hola.png',
