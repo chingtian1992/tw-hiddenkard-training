@@ -28,7 +28,7 @@ const MessageWall: React.FC<MessageWallProps> = ({ onSent }) => {
     { id: '4', name: 'BM_Stans', text: 'Big Matthew check in! 🔥 Keep the fire burning!', rotation: -12, offsetX: -20, offsetY: -10, colorTheme: 'white' },
     { id: '5', name: 'Somin_Love', text: '全能女神 Somin 加油！！', rotation: 6, offsetX: 5, offsetY: -5, colorTheme: 'white' },
     { id: '6', name: 'Jiwoo_Queen', text: 'Jiwoo 的音色真的沒人能代替 ❤️', rotation: -4, offsetX: 12, offsetY: 8, colorTheme: 'white' },
-    { id: '7', name: 'Carrie Luk', text: '謝謝你們一直堅持，沒有放棄！', rotation: -11, offsetX: -18, offsetY: 9, colorTheme: 'white' },
+    { id: '7', name: 'Carrie Luk', text: '謝謝你們一直堅持，沒有放棄！', rotation: -11, offsetX: -18, offsetY: -12, colorTheme: 'white' },
   ];
 
   const [history, setHistory] = useState<MessageEntry[]>(initialSimulation);
