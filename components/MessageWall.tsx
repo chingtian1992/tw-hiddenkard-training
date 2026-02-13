@@ -22,13 +22,13 @@ const MessageWall: React.FC<MessageWallProps> = ({ onSent }) => {
   
   // 模擬數據
   const initialSimulation: MessageEntry[] = [
-    { id: '1', name: 'Hidden_Taiwan', text: 'KARD Forever! Waiting for the tour!', rotation: -5, offsetX: -10, offsetY: 0, colorTheme: 'white' },
-    { id: '2', name: 'Ace_J', text: 'J.seph 的 Rap 真的太帥了！', rotation: 8, offsetX: 15, offsetY: 5, colorTheme: 'white' },
-    { id: '3', name: 'Training_hidden', text: 'Welcome to the Training Camp, Hidden KARD!', rotation: -2, offsetX: 0, offsetY: 10, colorTheme: 'dark' },
-    { id: '4', name: 'BM_Stans', text: 'Big Matthew check in! 🔥 Keep the fire burning!', rotation: -12, offsetX: -20, offsetY: -10, colorTheme: 'white' },
-    { id: '5', name: 'Somin_Love', text: '全能女神 Somin 加油！！', rotation: 6, offsetX: 5, offsetY: -5, colorTheme: 'white' },
-    { id: '6', name: 'Jiwoo_Queen', text: 'Jiwoo 的音色真的沒人能代替 ❤️', rotation: -4, offsetX: 12, offsetY: 8, colorTheme: 'white' },
-    { id: '7', name: 'Carrie Luk', text: '謝謝你們一直堅持，沒有放棄！', rotation: -11, offsetX: -18, offsetY: -12, colorTheme: 'white' },
+    { id: '2', name: 'Hidden_Taiwan', text: 'KARD Forever! Waiting for the tour!', rotation: -5, offsetX: -10, offsetY: 0, colorTheme: 'white' },
+    { id: '3', name: 'Ace_J', text: 'J.seph 的 Rap 真的太帥了！', rotation: 8, offsetX: 15, offsetY: 5, colorTheme: 'white' },
+    { id: '4', name: 'Training_hidden', text: 'Welcome to the Training Camp, Hidden KARD!', rotation: -2, offsetX: 0, offsetY: 10, colorTheme: 'dark' },
+    { id: '5', name: 'BM_Stans', text: 'Big Matthew check in! 🔥 Keep the fire burning!', rotation: -12, offsetX: -20, offsetY: -10, colorTheme: 'white' },
+    { id: '6', name: 'Somin_Love', text: '全能女神 Somin 加油！！', rotation: 6, offsetX: 5, offsetY: -5, colorTheme: 'white' },
+    { id: '7', name: 'Jiwoo_Queen', text: 'Jiwoo 的音色真的沒人能代替 ❤️', rotation: -4, offsetX: 12, offsetY: 8, colorTheme: 'white' },
+    { id: '8', name: 'Carrie Luk', text: '謝謝你們一直堅持，沒有放棄！', rotation: -11, offsetX: -18, offsetY: -12, colorTheme: 'white' },
   ];
 
   const [history, setHistory] = useState<MessageEntry[]>(initialSimulation);
